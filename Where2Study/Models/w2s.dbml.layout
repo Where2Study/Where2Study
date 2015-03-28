@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18.625, 11.625" name="w2s">
+  <DataContextMoniker Name="/w2sDataContext" />
+  <nestedChildShapes>
+    <classShape Id="dd55a52f-b61b-41f8-8d91-19acb9d3734c" absoluteBounds="13.875, 6, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/w2sDataContext/drzava" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7c83b0c-9353-4e01-8167-028031a7f047" absoluteBounds="13.89, 6.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5a54d716-893e-4652-80e8-5b7066888ebd" absoluteBounds="11.375, 9.625, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/w2sDataContext/sveuciliste_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71875314-5653-47af-88b1-76776c6f1b20" absoluteBounds="11.39, 10.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="167adb74-59a5-4dee-b9f9-b5a4fbec24b3" absoluteBounds="13.875, 3.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/w2sDataContext/drzava_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="843676c6-ea82-4fba-bc9b-5fad9c152252" absoluteBounds="13.89, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2543a5c9-6cc7-498e-9d9d-8d66e48a8f72" absoluteBounds="8.5, 6.75, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/w2sDataContext/fakultet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b373be2-6324-4eca-9c8a-dec80c40f9e8" absoluteBounds="8.515, 7.2100000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af3518d2-3160-492d-9dd5-8ce66f10471e" absoluteBounds="8.5, 4.5, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/w2sDataContext/fakultet_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e83954ff-de09-40c2-b5b5-f84f0f054425" absoluteBounds="8.515, 4.9600000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d9b6bd69-d192-46df-8637-002b3a52073d" absoluteBounds="11.375, 6, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/w2sDataContext/grad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bfee6ddd-6a4b-4239-b0fa-a319c1c38cb2" absoluteBounds="11.39, 6.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e435214-e6ab-4081-9926-5510b3b9f324" absoluteBounds="11.375, 3.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/w2sDataContext/grad_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40244344-7522-43b5-931f-7be7a68e4b7b" absoluteBounds="11.39, 4.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="28040877-6300-4dcb-94b9-bbc53c75ba45" absoluteBounds="8.5, 2.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/jezik" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b303b3c-1b7d-44dc-ab26-aaa3b682cec8" absoluteBounds="8.515, 3.2100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="86f064b3-1ece-447e-8492-57255744ea8c" absoluteBounds="8.5, 1, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/jezik_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50ac729d-adc5-4673-abf1-8929ff8016b9" absoluteBounds="8.515, 1.4600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f01c8f45-2053-4343-8e36-e645e5c39219" absoluteBounds="16.375, 6, 2, 1.0016910807291666">
+      <DataClassMoniker Name="/w2sDataContext/kontinent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ff4bf4f-3e87-43b6-88bc-42ec6e8ee336" absoluteBounds="16.39, 6.4600000000000009, 1.9700000000000002, 0.44169108072916669" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ac77effa-987d-4fae-aa25-fcd13fb98e88" absoluteBounds="16.375, 4, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/kontinent_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4e694c5f-ab9a-4c69-bd4f-c03236e3aeb3" absoluteBounds="16.39, 4.4600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8377821d-80d3-487e-b606-94b10932860e" absoluteBounds="3.5, 7.125, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/predmet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a215f41f-04ed-4e45-9c9a-e4a888c58d0a" absoluteBounds="3.5150000000000006, 7.5850000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="efae91dd-0992-499e-8efb-7256db216daa" absoluteBounds="3.375, 3.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/predmet_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a0767e7-0ceb-4925-be5f-356f2605d368" absoluteBounds="3.3900000000000006, 4.2100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18fb9c24-e697-42f2-b934-85f56ce73896" absoluteBounds="6, 5.625, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/w2sDataContext/smjer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ee4b0d4-b727-4a1d-bc14-28b9f24f8880" absoluteBounds="6.0150000000000006, 6.0850000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c29e0492-3745-4189-8d04-7aa2f66801c0" absoluteBounds="6, 7.25, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/w2sDataContext/smjer_predmet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a0c0d6b-a47e-4049-9482-f1c1c659d1a7" absoluteBounds="6.015, 7.7100000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="564af5ee-1fd3-4ebc-b640-ca2c39155d78" absoluteBounds="6, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/w2sDataContext/smjer_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d112c303-ea42-4c8c-9d96-c99ce46f5ed1" absoluteBounds="6.0150000000000006, 4.2100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4579ff8e-1b85-42e3-b2fc-3a8e7440f2a8" absoluteBounds="1.125, 5.625, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/w2sDataContext/stupanj" />
+      <nestedChildShapes>
+        <elementListCompartment Id="60a298c5-bba2-4878-950b-55db6da66d48" absoluteBounds="1.1400000000000006, 6.0850000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="757b36fb-227f-44aa-82a3-ba61c8f192f7" absoluteBounds="3.375, 5.5, 2, 1.3862939453125023">
+      <DataClassMoniker Name="/w2sDataContext/stupanj_smjer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c308c06f-6ef3-4c72-8a79-a34c0a50a5c5" absoluteBounds="3.3900000000000006, 5.9600000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49ca7efe-7fdd-47d2-82aa-9da4b89b7908" absoluteBounds="1.125, 3.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/w2sDataContext/stupanj_tekst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c7bfb5e-9616-40da-81fb-f7c9b3d46cf4" absoluteBounds="1.1399999999999997, 4.2100000000000009, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1c9c07ba-765e-4f3e-bc70-6988afca9cf8" absoluteBounds="11.375, 7.5, 2, 1.7708968098958309">
+      <DataClassMoniker Name="/w2sDataContext/sveuciliste" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca70d76b-7622-4884-8646-1ea2d6e18fc4" absoluteBounds="11.39, 7.9600000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(14.875 : 6); (14.875 : 5.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/drzava/drzava_drzava_tekst" />
+      <nodes>
+        <classShapeMoniker Id="dd55a52f-b61b-41f8-8d91-19acb9d3734c" />
+        <classShapeMoniker Id="167adb74-59a5-4dee-b9f9-b5a4fbec24b3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 6.75); (9.5 : 6.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/fakultet/fakultet_fakultet_tekst" />
+      <nodes>
+        <classShapeMoniker Id="2543a5c9-6cc7-498e-9d9d-8d66e48a8f72" />
+        <classShapeMoniker Id="af3518d2-3160-492d-9dd5-8ce66f10471e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.375 : 6.97199625651042); (10.9583333333333 : 6.97199625651042 : JumpStart); (10.7916666666667 : 6.97199625651042 : JumpEnd); (10.5 : 6.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/grad/grad_fakultet" />
+      <nodes>
+        <classShapeMoniker Id="d9b6bd69-d192-46df-8637-002b3a52073d" />
+        <classShapeMoniker Id="2543a5c9-6cc7-498e-9d9d-8d66e48a8f72" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.875 : 6.6008528825832); (13.375 : 6.6008528825832)]" fixedFrom="Algorithm" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/drzava/drzava_grad" />
+      <nodes>
+        <classShapeMoniker Id="dd55a52f-b61b-41f8-8d91-19acb9d3734c" />
+        <classShapeMoniker Id="d9b6bd69-d192-46df-8637-002b3a52073d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 6); (12.375 : 5.64589680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/grad/grad_grad_tekst" />
+      <nodes>
+        <classShapeMoniker Id="d9b6bd69-d192-46df-8637-002b3a52073d" />
+        <classShapeMoniker Id="4e435214-e6ab-4081-9926-5510b3b9f324" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 4.1362939453125); (10.875 : 4.75); (10.875 : 10.5104484049479); (11.375 : 10.5104484049479)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_sveuciliste_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="5a54d716-893e-4652-80e8-5b7066888ebd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 3.30716403250128); (14.875 : 3.30716403250128); (14.875 : 3.875)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_drzava_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="167adb74-59a5-4dee-b9f9-b5a4fbec24b3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.62821785261124 : 4.1362939453125); (9.64734773498663 : 4.5)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_fakultet_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="af3518d2-3160-492d-9dd5-8ce66f10471e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 3.59559464030247); (12.375 : 3.59559464030247); (12.375 : 3.875)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_grad_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="4e435214-e6ab-4081-9926-5510b3b9f324" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.55849612869451 : 2.75); (9.55849612869451 : 2.3862939453125)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_jezik_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="86f064b3-1ece-447e-8492-57255744ea8c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.375 : 6.50084554036458); (15.875 : 6.50084554036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/kontinent/kontinent_drzava" />
+      <nodes>
+        <classShapeMoniker Id="f01c8f45-2053-4343-8e36-e645e5c39219" />
+        <classShapeMoniker Id="dd55a52f-b61b-41f8-8d91-19acb9d3734c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(17.375 : 6); (17.375 : 5.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/kontinent/kontinent_kontinent_tekst" />
+      <nodes>
+        <classShapeMoniker Id="f01c8f45-2053-4343-8e36-e645e5c39219" />
+        <classShapeMoniker Id="ac77effa-987d-4fae-aa25-fcd13fb98e88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5 : 3.06985746977409); (17.375 : 3.06985746977409); (17.375 : 4)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_kontinent_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="ac77effa-987d-4fae-aa25-fcd13fb98e88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.52970569243709); (5.74 : 7.52970569243709); (5.74 : 4.87294311996274); (5.375 : 4.87294311996274)]" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/predmet/predmet_predmet_tekst" />
+      <nodes>
+        <classShapeMoniker Id="8377821d-80d3-487e-b606-94b10932860e" />
+        <classShapeMoniker Id="efae91dd-0992-499e-8efb-7256db216daa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.34920636963268); (4.78015696708322 : 3.34920636963268); (4.78015696708322 : 3.75)]" manuallyRouted="true" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_predmet_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="efae91dd-0992-499e-8efb-7256db216daa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 7.74038124576741); (8.26 : 7.74038124576741); (8.26 : 6.49979278504163); (8 : 6.49979278504163)]" fixedFrom="Caller" fixedTo="Caller">
+      <AssociationMoniker Name="/w2sDataContext/fakultet/fakultet_smjer" />
+      <nodes>
+        <classShapeMoniker Id="2543a5c9-6cc7-498e-9d9d-8d66e48a8f72" />
+        <classShapeMoniker Id="18fb9c24-e697-42f2-b934-85f56ce73896" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.04934910272896); (6 : 8.04934910272896)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/predmet/predmet_smjer_predmet" />
+      <nodes>
+        <classShapeMoniker Id="8377821d-80d3-487e-b606-94b10932860e" />
+        <classShapeMoniker Id="c29e0492-3745-4189-8d04-7aa2f66801c0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7 : 6.81899251302083); (7 : 7.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/smjer/smjer_smjer_predmet" />
+      <nodes>
+        <classShapeMoniker Id="18fb9c24-e697-42f2-b934-85f56ce73896" />
+        <classShapeMoniker Id="c29e0492-3745-4189-8d04-7aa2f66801c0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7 : 5.625); (7 : 5.32859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/smjer/smjer_smjer_tekst" />
+      <nodes>
+        <classShapeMoniker Id="18fb9c24-e697-42f2-b934-85f56ce73896" />
+        <classShapeMoniker Id="564af5ee-1fd3-4ebc-b640-ca2c39155d78" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.57174300102584); (7 : 3.57174300102584); (7 : 3.75)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_smjer_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="564af5ee-1fd3-4ebc-b640-ca2c39155d78" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 6.22199625651042); (5.82333333333333 : 6.22199625651041 : JumpStart); (5.65666666666667 : 6.22199625651042 : JumpEnd); (5.375 : 6.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/smjer/smjer_stupanj_smjer" />
+      <nodes>
+        <classShapeMoniker Id="18fb9c24-e697-42f2-b934-85f56ce73896" />
+        <classShapeMoniker Id="757b36fb-227f-44aa-82a3-ba61c8f192f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 6.22199625651042); (3.375 : 6.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/stupanj/stupanj_stupanj_smjer" />
+      <nodes>
+        <classShapeMoniker Id="4579ff8e-1b85-42e3-b2fc-3a8e7440f2a8" />
+        <classShapeMoniker Id="757b36fb-227f-44aa-82a3-ba61c8f192f7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 5.625); (2.125 : 5.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/stupanj/stupanj_stupanj_tekst" />
+      <nodes>
+        <classShapeMoniker Id="4579ff8e-1b85-42e3-b2fc-3a8e7440f2a8" />
+        <classShapeMoniker Id="49ca7efe-7fdd-47d2-82aa-9da4b89b7908" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.05824397637817); (2.125 : 3.05824397637817); (2.125 : 3.75)]" fixedFrom="Caller" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/jezik/jezik_stupanj_tekst" />
+      <nodes>
+        <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
+        <classShapeMoniker Id="49ca7efe-7fdd-47d2-82aa-9da4b89b7908" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 9.27089680989583); (12.375 : 9.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/sveuciliste/sveuciliste_sveuciliste_tekst" />
+      <nodes>
+        <classShapeMoniker Id="1c9c07ba-765e-4f3e-bc70-6988afca9cf8" />
+        <classShapeMoniker Id="5a54d716-893e-4652-80e8-5b7066888ebd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.375 : 8.20274983723958); (10.9583333333333 : 8.20274983723958 : JumpStart); (10.7916666666667 : 8.20274983723958 : JumpEnd); (10.5 : 8.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/sveuciliste/sveuciliste_fakultet" />
+      <nodes>
+        <classShapeMoniker Id="1c9c07ba-765e-4f3e-bc70-6988afca9cf8" />
+        <classShapeMoniker Id="2543a5c9-6cc7-498e-9d9d-8d66e48a8f72" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 7.19399251302083); (12.375 : 7.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/w2sDataContext/grad/grad_sveuciliste" />
+      <nodes>
+        <classShapeMoniker Id="d9b6bd69-d192-46df-8637-002b3a52073d" />
+        <classShapeMoniker Id="1c9c07ba-765e-4f3e-bc70-6988afca9cf8" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

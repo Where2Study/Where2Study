@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AddressLong" xml:space="preserve">
+    <value>Must be less then 50 characters</value>
+  </data>
+  <data name="AddressRequired" xml:space="preserve">
+    <value>Address is required</value>
+  </data>
+  <data name="BrowseContinents" xml:space="preserve">
+    <value>Browse continents</value>
+  </data>
+  <data name="CityTitleLong" xml:space="preserve">
+    <value>Must be less then 20 characters</value>
+  </data>
+  <data name="CityTitleRequired" xml:space="preserve">
+    <value>City is required</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="continents" xml:space="preserve">
+    <value>continents</value>
+  </data>
+  <data name="ContinentTitleLong" xml:space="preserve">
+    <value>Must be less then 20 characters</value>
+  </data>
+  <data name="ContinentTitleRequired" xml:space="preserve">
+    <value>Continent is required</value>
+  </data>
+  <data name="CountryTitleLong" xml:space="preserve">
+    <value>Must be less then 20 characters</value>
+  </data>
+  <data name="CountryTitleRequired" xml:space="preserve">
+    <value>Country is required</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>a portal where you can find info about faculties around the world to help you decide where to study. To begin, select Browse from the navbar or enter a desired faculty/study title or part of it into the search box.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="PhoneNumberLong" xml:space="preserve">
+    <value>Must be less then 16 chatr</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Phone number is required</value>
+  </data>
+  <data name="SelectFrom" xml:space="preserve">
+    <value>Select from</value>
+  </data>
+  <data name="UniversityTitleLong" xml:space="preserve">
+    <value>Must be less then 80 characters</value>
+  </data>
+  <data name="UniversityTitleRequired" xml:space="preserve">
+    <value>University title is required</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="BrowseCities" xml:space="preserve">
+    <value>Browse cities</value>
+  </data>
+  <data name="BrowseCountries" xml:space="preserve">
+    <value>Browse countries</value>
+  </data>
+  <data name="BrowseUniversities" xml:space="preserve">
+    <value>Browse universities</value>
+  </data>
+  <data name="CityTitle" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="ContinentTitle" xml:space="preserve">
+    <value>Continent</value>
+  </data>
+  <data name="CountryTitle" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="UniversityTitle" xml:space="preserve">
+    <value>University</value>
+  </data>
+  <data name="WebSite" xml:space="preserve">
+    <value>Web site</value>
+  </data>
+  <data name="WebSiteLong" xml:space="preserve">
+    <value>Must be less then 50 characters</value>
+  </data>
+  <data name="WebSiteRequired" xml:space="preserve">
+    <value>Web site is required</value>
+  </data>
+  <data name="cities" xml:space="preserve">
+    <value>cities</value>
+  </data>
+  <data name="countries" xml:space="preserve">
+    <value>countries</value>
+  </data>
+  <data name="SelectFromb" xml:space="preserve">
+    <value>Select from</value>
+  </data>
+  <data name="universities" xml:space="preserve">
+    <value>universities</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search Where2Study</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="UniversityDescription" xml:space="preserve">
+    <value>University description</value>
+  </data>
+  <data name="UniversityDescriptionLong" xml:space="preserve">
+    <value>Must be less then 10000 characters</value>
+  </data>
+  <data name="UniversityDescriptionRequired" xml:space="preserve">
+    <value>University title is required</value>
+  </data>
+  <data name="FacultyDescription" xml:space="preserve">
+    <value>Faculty description</value>
+  </data>
+  <data name="FacultyDescriptionLong" xml:space="preserve">
+    <value>Must be less then 10000 characters</value>
+  </data>
+  <data name="FacultyDescriptionRequired" xml:space="preserve">
+    <value>Faculty title is required</value>
+  </data>
+  <data name="FacultyTitle" xml:space="preserve">
+    <value>Faculty</value>
+  </data>
+  <data name="FacultyTitleLong" xml:space="preserve">
+    <value>Must be less then 80 characters</value>
+  </data>
+  <data name="FacultyTitleRequired" xml:space="preserve">
+    <value>Faculty title is required</value>
+  </data>
+  <data name="Poll" xml:space="preserve">
+    <value>Poll</value>
+  </data>
+  <data name="BrowseFaculties" xml:space="preserve">
+    <value>Browse faculties</value>
+  </data>
+  <data name="faculties" xml:space="preserve">
+    <value>faculties</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Browse</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome to Where2Study web site,</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>account</value>
+  </data>
+  <data name="AddAnExternalLogin" xml:space="preserve">
+    <value>Add an external login</value>
+  </data>
+  <data name="AssociateYour" xml:space="preserve">
+    <value>Associate your</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Association Form</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="ChangePasswordForm" xml:space="preserve">
+    <value>Change Password Form</value>
+  </data>
+  <data name="CredentialFromYourAccount" xml:space="preserve">
+    <value>credential from your account</value>
+  </data>
+  <data name="DataBase" xml:space="preserve">
+    <value>Database(CRUD)</value>
+  </data>
+  <data name="FreeEduWeb" xml:space="preserve">
+    <value>40 free educational websites</value>
+  </data>
+  <data name="FreeOnlCour" xml:space="preserve">
+    <value>1100 free online courses</value>
+  </data>
+  <data name="IfYouDontHaveAnAccount" xml:space="preserve">
+    <value>if you don't have an account.</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LogInForm" xml:space="preserve">
+    <value>Log in Form</value>
+  </data>
+  <data name="LogInUsingAnotherService" xml:space="preserve">
+    <value>Log in using another service</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Manage Account</value>
+  </data>
+  <data name="PasswordSoYouCanLogIn" xml:space="preserve">
+    <value>password so you can log in without an external login.</value>
+  </data>
+  <data name="PleaseEnterUserName" xml:space="preserve">
+    <value>Please enter a user name for this site below and click the Confirm button to finish logging in.</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisteredExternalLogins" xml:space="preserve">
+    <value>Registered external logins</value>
+  </data>
+  <data name="RegistrationForm" xml:space="preserve">
+    <value>Registration Form</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveThis" xml:space="preserve">
+    <value>Remove this</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Set password</value>
+  </data>
+  <data name="SetPasswordForm" xml:space="preserve">
+    <value>Set Password Form</value>
+  </data>
+  <data name="UnsuccessfulLoginWithService" xml:space="preserve">
+    <value>Unsuccessful login with service.</value>
+  </data>
+  <data name="UseAnotherServiceToLogIn" xml:space="preserve">
+    <value>Use another service to log in.</value>
+  </data>
+  <data name="YouDoNotHaveALocalPassword" xml:space="preserve">
+    <value>You do not have a local password for this site. Add a local</value>
+  </data>
+  <data name="YoureLoggedInAs" xml:space="preserve">
+    <value>You're logged in as</value>
+  </data>
+  <data name="YouveSuccessfullyAuthenticatedWith" xml:space="preserve">
+    <value>You've successfully authenticated with</value>
+  </data>
+  <data name="AnUnknownErrorOccurred" xml:space="preserve">
+    <value>An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="AUserNameForThatEmailAddressAlreadyExists" xml:space="preserve">
+    <value>A user name for that e-mail address already exists. Please enter a different e-mail address.</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="LogInUsingYour" xml:space="preserve">
+    <value>Log in using your</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Log off</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="TheAuthenticationProviderReturnedAnError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="TheCurrentPasswordIsIncorrect" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+  </data>
+  <data name="TheEmailAddressProvidedIsInvalid" xml:space="preserve">
+    <value>The e-mail address provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="TheExternalLoginWasRemoved" xml:space="preserve">
+    <value>The external login was removed.</value>
+  </data>
+  <data name="TheNewPasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>The new password and confirmation password do not match.</value>
+  </data>
+  <data name="ThePasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>The password and confirmation password do not match.</value>
+  </data>
+  <data name="ThePasswordProvidedIsInvalid" xml:space="preserve">
+    <value>The password provided is invalid. Please enter a valid password value.</value>
+  </data>
+  <data name="ThePasswordRetrievalAnswerProvidedIsInvalid" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="ThePasswordRetrievalQuestionProvidedIsInvalid" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="TheUserCreationRequestHasBeenCanceled" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="TheUserNameProvidedIsInvalid" xml:space="preserve">
+    <value>The user name provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="UnableToCreateLocalAccountAlreadyExists" xml:space="preserve">
+    <value>Unable to create local account. An account with the name \"{0}\" may already exist.</value>
+  </data>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Use a local account to log in.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="UserNameAlreadyExists" xml:space="preserve">
+    <value>User name already exists. Please enter a different user name.</value>
+  </data>
+  <data name="YourPasswordHasBeenChanged" xml:space="preserve">
+    <value>Your password has been changed.</value>
+  </data>
+  <data name="YourPasswordHasBeenSet" xml:space="preserve">
+    <value>Your password has been set.</value>
+  </data>
+</root>

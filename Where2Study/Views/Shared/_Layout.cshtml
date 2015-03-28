@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-2.5.3.js")" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.bs-example{
+    	margin: 20px;
+    }
+    hr{
+        margin: 60px 0;
+    }
+</style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template 
+    <link href="/Content/starter-template.css" rel="stylesheet"> -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" >
+              <span class="hidden-xs">Where 2 Study</span> 
+              <img class="visible-xs" style="max-width:40px; margin-top: -7px;" src="/content/Images/w2s_logo.png"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+              <li class="dropdown">
+                  <a href="/Menu/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.Browse <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      @*{
+                    --treba nekako ucitat iz baze podatke?  (mozda)
+                    @model IEnumerable<Where2Study.Models.kontinent_tekst>
+                    foreach (var)
+                    {
+                        <li>
+                            @Html.ActionLink(item.tekst, "Countries", new { continent = item.tekst })
+                        </li>
+                    }
+                }*@
+            @*@{
+                Where2Study.Controllers.MenuController.Index();
+                var db = new Where2Study.Models.w2sDataContext();
+                var currentLanguage = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+                var continents = from c in db.kontinent_teksts
+                                 from j in db.jeziks
+                                 where j.kratica == currentLanguage && c.id_jezik == j.id
+                                 select c;
+@model IEnumerable<Where2Study.Models.kontinent_tekst>
+  
+    foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.tekst, "Countries", new {continent=item.tekst})</li>
+    }                    
+                
+            }*@
+            @{ Where2Study.Models.w2sRepository.GetAllContinents();
+                foreach (var continent in Where2Study.Models.w2sRepository.AllContinents)
+               {
+                   <li class="dropdown-submenu"><a tabindex="-1" href="/Menu/Countries?continent=@continent.tekst"> @continent.tekst</a>
+                      <ul class="dropdown-menu"> 
+                          @{ Where2Study.Models.w2sRepository.GetAllCountries(continent.tekst);
+                            foreach (var country in Where2Study.Models.w2sRepository.AllCountries)
+                            {
+                                <li class="dropdown-submenu"><a href="/Menu/Cities?country=@country.naziv">@country.naziv</a>
+                                   <ul class="dropdown-menu">
+                                      @{ Where2Study.Models.w2sRepository.GetAllCities(country.naziv);
+                                          foreach (var city in Where2Study.Models.w2sRepository.AllCities)
+                                          {
+                                              <li class="dropdown-submenu"><a href="/Menu/Faculties?City=@city.naziv">@city.naziv</a>
+                                                  <ul class="dropdown-menu">
+                                                     @{ Where2Study.Models.w2sRepository.GetAllFaculties(city.naziv);
+                                                          foreach (var faculty in Where2Study.Models.w2sRepository.AllFaculties)
+                                                          {
+                                                             <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@faculty.Title</a>
+                                                                <ul class="dropdown-menu">
+                                                                    @{ Where2Study.Models.w2sRepository.GetAllDegrees();
+                                                                         foreach (var degree in Where2Study.Models.w2sRepository.AllDegrees)
+                                                                         {
+                                                                            <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@degree.naziv</a>
+                                                                               <ul class="dropdown-menu">
+                                                                                   @{ Where2Study.Models.w2sRepository.GetAllDegreeSpec(faculty.Title, degree.id_stupanj);
+                                                                                        foreach (var specialization in Where2Study.Models.w2sRepository.AllDegreeSpec)
+                                                                                        {
+                                                                                            <li> <a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@specialization.Specialization</a></li> 
+                                                                                        }
+                                                                                    }                                                                               </ul>
+                                                                            </li> 
+                                                                         }
+                                                                      }
+                                                                 </ul>
+                                                             </li>
+                                          }  
+                                          }
+                                                  </ul>
+                                              </li>
+                                          }
+                                      }
+                                   </ul>
+                                </li>
+                            }
+                          }
+                      </ul>
+                   </li>
+               }
+               }
+  
+                     
+                  </ul>
+              </li>  
+              <li class="dropdown">
+                <a href="/CRUD/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.DataBase<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/Country">država_tekst</a></li>
+                    <li><a href="/City">grad_tekst</a></li>
+                    <li><a href="/Faculty">fakultet</a></li>
+                    <li><a href="/FacultyText">fakultet_tekst</a></li>
+                    <li><a href="/University">sveučilište</a></li>
+                    <li><a href="/UniversityText">sveučilište_tekst</a></li>
+                    <li><a href="/DegreeSpecialization">stupanj_smjer</a></li>
+                    <li><a href="/Specialization">smjer</a></li>
+                    <li><a href="/SpecializationText">smjer_tekst</a></li>
+                </ul>
+            </li>
+            <li><a href="https://docs.google.com/forms/d/1LAWvDy5ASClVgQlpqEUYVCbJ30xHM2rpqY8umhDPiBg/viewform">@Resources.Resources.Poll</a></li>
+            <li><a href="/About/">@Resources.Resources.About</a></li>
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.Links<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="http://www.iheartintelligence.com/2014/01/18/beat-the-system-40-free-educational-websites/">@Resources.Resources.FreeEduWeb</a></li>
+                    <li><a href="http://www.openculture.com/freeonlinecourses">@Resources.Resources.FreeOnlCour</a></li>
+                </ul>
+            </li>
+            <li><a href="/Contacts/">@Resources.Resources.Contacts</a></li>
+            
+            <li class="dropdown">
+                <a href="/Language/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.Language<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+            @{
+                foreach (var i in Where2Study.SiteLanguages.AvailableLanguages)
+                    {<li>
+                        @Html.ActionLink(i.LangFullName, "ChangeLanguage", "Home", new{lang = i.LangCultureName}, null)
+                    </li>
+                }
+            }
+                             </ul>
+            </li>
+                        </ul>
+
+            @*<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+              @Html.Partial("_LoginPartial")
+            </li>
+                </ul>
+
+            @*<li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Inbox</a></li>
+                <li><a href="#">Drafts</a></li>
+                <li><a href="#">Sent Items</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Trash</a></li>
+            </ul>
+        </li>
+        <li class="dropdown pull-right">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </li>*@
+        
+                   @* <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Drafts</a></li>
+                    <li><a href="#">Sent Items</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Trash</a></li> *@
+       
+
+                <!-- Primjer razor liste
+
+                 <li>@Html.ActionLink("Osnovne informacije", "info", "home")</li>
+                 <li>@Html.ActionLink("Mentori", "mentori", "home")</li>
+                 <li>@Html.ActionLink("Termini predavanja", "termini", "home")</li>
+                 <li>@Html.ActionLink("Galerija", "galerija", "home")</li>
+                 <li>@Html.ActionLink("Youtube", "youtube", "home")</li>
+                 <li>@Html.ActionLink("Kontakt informacije", "kontakt", "home")</li> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div id="map">
+   
+        <div class="container" id="content">
+            <div class="row">
+                @RenderBody()
+            </div>
+        </div>
+     </div>
+</body>
+</html>

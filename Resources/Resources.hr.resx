@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>O nama</value>
+  </data>
+  <data name="AddressLong" xml:space="preserve">
+    <value>Mora biti kraće od 50 znakova</value>
+  </data>
+  <data name="AddressRequired" xml:space="preserve">
+    <value>Potrebno je unijeti adresu</value>
+  </data>
+  <data name="BrowseContinents" xml:space="preserve">
+    <value>Pretraži kontinente</value>
+  </data>
+  <data name="CityTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 20 znakova</value>
+  </data>
+  <data name="CityTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti grad</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Kontakt</value>
+  </data>
+  <data name="continents" xml:space="preserve">
+    <value>kontinenata</value>
+  </data>
+  <data name="ContinentTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 20 znakova</value>
+  </data>
+  <data name="ContinentTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti kontinent</value>
+  </data>
+  <data name="CountryTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 20 znakova</value>
+  </data>
+  <data name="CountryTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti državu</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Početna</value>
+  </data>
+  <data name="Instructions" xml:space="preserve">
+    <value>portala za pronalazak informacija o fakultetima diljem svijeta za pomoć pri odabiru gdje studirati. Za početak odaberite pretragu ili upišite dio naziva fakulteta/studija koji vas zanima u search box.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Izbornik</value>
+  </data>
+  <data name="PhoneNumberLong" xml:space="preserve">
+    <value>Mora biti kraće od 16 znakova</value>
+  </data>
+  <data name="PhoneNumberRequired" xml:space="preserve">
+    <value>Potrebno je unijeti broj telefona</value>
+  </data>
+  <data name="SelectFrom" xml:space="preserve">
+    <value>Odaberi jedan od</value>
+  </data>
+  <data name="UniversityTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 80 znakova</value>
+  </data>
+  <data name="UniversityTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti naslov fakulteta</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="BrowseCities" xml:space="preserve">
+    <value>Pretraži gradove</value>
+  </data>
+  <data name="BrowseCountries" xml:space="preserve">
+    <value>Pretraži države</value>
+  </data>
+  <data name="BrowseUniversities" xml:space="preserve">
+    <value>Pregledaj sveučilišta</value>
+  </data>
+  <data name="CityTitle" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="ContinentTitle" xml:space="preserve">
+    <value>Kontinent</value>
+  </data>
+  <data name="CountryTitle" xml:space="preserve">
+    <value>Država</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="UniversityTitle" xml:space="preserve">
+    <value>Fakultet</value>
+  </data>
+  <data name="WebSite" xml:space="preserve">
+    <value>Web stranica</value>
+  </data>
+  <data name="WebSiteLong" xml:space="preserve">
+    <value>Mora biti kraće od 50 znakova</value>
+  </data>
+  <data name="WebSiteRequired" xml:space="preserve">
+    <value>Potrebno je unijeti web site</value>
+  </data>
+  <data name="cities" xml:space="preserve">
+    <value>gradova</value>
+  </data>
+  <data name="countries" xml:space="preserve">
+    <value>država</value>
+  </data>
+  <data name="SelectFromb" xml:space="preserve">
+    <value>Odaberi jednu od</value>
+  </data>
+  <data name="universities" xml:space="preserve">
+    <value>sveučilišta</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretražite Where2Study</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Rezultati pretrage</value>
+  </data>
+  <data name="UniversityDescription" xml:space="preserve">
+    <value>Opis fakulteta</value>
+  </data>
+  <data name="UniversityDescriptionLong" xml:space="preserve">
+    <value>Mora biti kraće od 10000 znakova</value>
+  </data>
+  <data name="UniversityDescriptionRequired" xml:space="preserve">
+    <value>Potrebno je unijeti opis fakulteta</value>
+  </data>
+  <data name="FacultyDescription" xml:space="preserve">
+    <value>Opis fakulteta</value>
+  </data>
+  <data name="FacultyDescriptionLong" xml:space="preserve">
+    <value>Mora biti kraće od 10000 znakova</value>
+  </data>
+  <data name="FacultyDescriptionRequired" xml:space="preserve">
+    <value>Potrebno je unijeti opis fakulteta</value>
+  </data>
+  <data name="FacultyTitle" xml:space="preserve">
+    <value>Fakultet</value>
+  </data>
+  <data name="FacultyTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 80 znakova</value>
+  </data>
+  <data name="FacultyTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti naslov fakulteta</value>
+  </data>
+  <data name="Poll" xml:space="preserve">
+    <value>Anketa</value>
+  </data>
+  <data name="BrowseFaculties" xml:space="preserve">
+    <value>Pregledaj fakultete</value>
+  </data>
+  <data name="faculties" xml:space="preserve">
+    <value>fakulteta</value>
+  </data>
+  <data name="Browse" xml:space="preserve">
+    <value>Pretraga</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Dobro došli na stranice Where2Study,</value>
+  </data>
+  <data name="Account" xml:space="preserve">
+    <value>račun</value>
+  </data>
+  <data name="AddAnExternalLogin" xml:space="preserve">
+    <value>Dodajte vanjski login</value>
+  </data>
+  <data name="AnUnknownErrorOccurred" xml:space="preserve">
+    <value>Došlo je do nepoznate greške. Molimo potvrdite vaš unos i pokušajte opet. Ako se problem nastavi događati, molimo kontaktirajte sistemskog administratora.</value>
+  </data>
+  <data name="AssociateYour" xml:space="preserve">
+    <value>Povežite svoj</value>
+  </data>
+  <data name="AssociationForm" xml:space="preserve">
+    <value>Obrazac za povezivanje</value>
+  </data>
+  <data name="AUserNameForThatEmailAddressAlreadyExists" xml:space="preserve">
+    <value>Korisnik s istom e-mail adresom već postoji. Molimo unesite drugu e-mail adresu.</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Promijenite zaporku</value>
+  </data>
+  <data name="ChangePasswordForm" xml:space="preserve">
+    <value>Obrazac za promjenu zaporke</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Potvrdite novu zaporku</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrdite zaporku</value>
+  </data>
+  <data name="CredentialFromYourAccount" xml:space="preserve">
+    <value>kredencijal iz svog računa</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Trenutna zaporka</value>
+  </data>
+  <data name="DataBase" xml:space="preserve">
+    <value>Baza podataka(CRUD)</value>
+  </data>
+  <data name="FreeEduWeb" xml:space="preserve">
+    <value>40 besplatnih edukacijskih web site-ova</value>
+  </data>
+  <data name="FreeOnlCour" xml:space="preserve">
+    <value>1100 besplatnih online tečajeva</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Bok</value>
+  </data>
+  <data name="IfYouDontHaveAnAccount" xml:space="preserve">
+    <value>ako ne posjedujete račun.</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>Linkovi</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Prijava</value>
+  </data>
+  <data name="LogInForm" xml:space="preserve">
+    <value>Obrazac za prijavu</value>
+  </data>
+  <data name="LogInUsingAnotherService" xml:space="preserve">
+    <value>Prijavite se putem drugog servisa</value>
+  </data>
+  <data name="LogInUsingYour" xml:space="preserve">
+    <value>Prijavite se na svoj</value>
+  </data>
+  <data name="LogOff" xml:space="preserve">
+    <value>Odjava</value>
+  </data>
+  <data name="ManageAccount" xml:space="preserve">
+    <value>Upravljanje računom</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nova zaporka</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Zaporka</value>
+  </data>
+  <data name="PasswordSoYouCanLogIn" xml:space="preserve">
+    <value>zaporku da bi se mogli prijaviti bez vanjskog logina.</value>
+  </data>
+  <data name="PleaseEnterUserName" xml:space="preserve">
+    <value>Molimo unesite korisničko ime za ovu stranicu u polje ispod i kliknite "Potvrdi" kako biste se prijavili</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="RegisteredExternalLogins" xml:space="preserve">
+    <value>Registrirani vanjski login-i</value>
+  </data>
+  <data name="RegistrationForm" xml:space="preserve">
+    <value>Obrazac za registraciju</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Zapamti me?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Uklonite</value>
+  </data>
+  <data name="RemoveThis" xml:space="preserve">
+    <value>Uklonite ovaj</value>
+  </data>
+  <data name="SetPassword" xml:space="preserve">
+    <value>Postavite zaporku</value>
+  </data>
+  <data name="SetPasswordForm" xml:space="preserve">
+    <value>Obrazac za postavljanje zaporke</value>
+  </data>
+  <data name="TheAuthenticationProviderReturnedAnError" xml:space="preserve">
+    <value>The authentication provider returned an error. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="TheCurrentPasswordIsIncorrect" xml:space="preserve">
+    <value>Trenutna zaporka je neispravna ili je nova nevažeća.</value>
+  </data>
+  <data name="TheEmailAddressProvidedIsInvalid" xml:space="preserve">
+    <value>Unesena e-mail adresa je neispravna. Molimo provjerite vaš unos i pokušajte opet.</value>
+  </data>
+  <data name="TheExternalLoginWasRemoved" xml:space="preserve">
+    <value>Vanjski login je odstranjen</value>
+  </data>
+  <data name="TheNewPasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Nova zaporka i potvrdna zaporka nisu jednake.</value>
+  </data>
+  <data name="ThePasswordAndConfirmationPasswordDoNotMatch" xml:space="preserve">
+    <value>Zaporka i potvrdna zaporka nisu jednake.</value>
+  </data>
+  <data name="ThePasswordProvidedIsInvalid" xml:space="preserve">
+    <value>Unesena zaporka je nevažeća. Molimo unesite ispravnu lozinku.</value>
+  </data>
+  <data name="ThePasswordRetrievalAnswerProvidedIsInvalid" xml:space="preserve">
+    <value>The password retrieval answer provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="ThePasswordRetrievalQuestionProvidedIsInvalid" xml:space="preserve">
+    <value>The password retrieval question provided is invalid. Please check the value and try again.</value>
+  </data>
+  <data name="TheUserCreationRequestHasBeenCanceled" xml:space="preserve">
+    <value>The user creation request has been canceled. Please verify your entry and try again. If the problem persists, please contact your system administrator.</value>
+  </data>
+  <data name="TheUserNameProvidedIsInvalid" xml:space="preserve">
+    <value>Uneseno korisničko ime je neispravno. Molimo provjerite vaš unos i pokušajte opet.</value>
+  </data>
+  <data name="UnableToCreateLocalAccountAlreadyExists" xml:space="preserve">
+    <value>Niste u mogućnosti napraviti lokalni račun. Račun s imenom \"{0}\" možda već postoji.</value>
+  </data>
+  <data name="UnsuccessfulLoginWithService" xml:space="preserve">
+    <value>Neuspješna prijava putem odabrane usluge.</value>
+  </data>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Koristite lokalni račun za prijavu.</value>
+  </data>
+  <data name="UseAnotherServiceToLogIn" xml:space="preserve">
+    <value>Koristite drugu uslugu za prijavu.</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Korisničko ime</value>
+  </data>
+  <data name="UserNameAlreadyExists" xml:space="preserve">
+    <value>Korisničko ime već postoji. Molimo unesite drugo korisničko ime.</value>
+  </data>
+  <data name="YouDoNotHaveALocalPassword" xml:space="preserve">
+    <value>Nemate lokalnu zaporku za ovaj site, Dodajte lokalnu</value>
+  </data>
+  <data name="YoureLoggedInAs" xml:space="preserve">
+    <value>Prijavljeni ste kao</value>
+  </data>
+  <data name="YourPasswordHasBeenChanged" xml:space="preserve">
+    <value>Vaša zaporka je promijenjena</value>
+  </data>
+  <data name="YourPasswordHasBeenSet" xml:space="preserve">
+    <value>Vaša zaporka je postavljena</value>
+  </data>
+  <data name="YouveSuccessfullyAuthenticatedWith" xml:space="preserve">
+    <value>Uspješno ste se autentificirali s</value>
+  </data>
+</root>
