@@ -18,12 +18,12 @@
             </div>
         </div>
     </div>
-
+<div class="container">
     <div class="col-md-6">
         @*<div>
-            <h5><b><a href="/CRUD">Rad s podatcima </a></b>-
-            Pregled, unos, izmjena i brisanje podataka u tablicama</h5>
-        </div>*@
+                <h5><b><a href="/CRUD">Rad s podatcima </a></b>-
+                Pregled, unos, izmjena i brisanje podataka u tablicama</h5>
+            </div>*@
         <br /><br /><br /><br /><br /><br /><br />
 
         <!-- JAVASCRIPT to clear search text when the field is clicked -->
@@ -41,33 +41,43 @@
                 }
             }
         </script>
-        <div id="tfheader">
-            <form id="tfnewsearch" method="get" action="/Menu/Search">
-                <input type="text" id="tfq" class="tftextinput2" name="q" size="21" maxlength="120" value="@Resources.Resources.Search"><input type="submit" value=">" class="tfbutton2">
-            </form>
-            <div class="tfclear"></div>
-        </div>
-    </div>
 
-<div class="container" style="margin-bottom:100px;min-height:500px;">
-    <div class="col-md-6">
-        <div id="carousel1" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                @{
-                    var i = 0;
-                    foreach (var item in Model)
-                    {
-                        var itemClass = i++ == 0 ? "item active" : "item";
-                        <div class="@itemClass">
-                            <h4 class="text-center">@item.Title</h4>
-                            <img class="center-block" src="/content/Images/Slike/@item.Photo" alt="@item.Title" style="width:400px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Pretraživanje</h4>
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="form-control input-lg" placeholder="Search" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-info btn-lg" type="button">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
                         </div>
-                    }
-                }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>   
+        <div class="col-md-6" style="margin-bottom:100px;min-height:500px;">
+            <div id="carousel1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    @{
+                        var i = 0;
+                        foreach (var item in Model)
+                        {
+                            var itemClass = i++ == 0 ? "item active" : "item";
+                            <div class="@itemClass">
+                                <h4 class="text-center">@item.Title</h4>
+                                <img class="center-block" src="/content/Images/Slike/@item.Photo" alt="@item.Title" style="width:400px;">
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+</div>  
 
 <script>$('.carousel').carousel({
     interval: 4000
