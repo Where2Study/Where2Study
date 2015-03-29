@@ -18,13 +18,3 @@ D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study2\Resources\obj\Debug\hr\Resources
 D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study2\Resources\obj\Debug\Resources.dll
 D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study2\Resources\obj\Debug\Resources.pdb
 D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\bin\Debug\Resources.dll
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\bin\Debug\Resources.pdb
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\bin\Debug\hr\Resources.resources.dll
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.Resources.resources
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.Resources.hr.resources
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\hr\Resources.resources.dll
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.dll
-C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.pdb

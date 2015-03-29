@@ -4,51 +4,47 @@
     ViewBag.Title = "Log in";
 }
 
-<div class="container">
-    <div id="loginbox" style="margin-top:50px;padding-bottom:3em;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <div class="panel-title">Prijava</div>
-            </div>
+<hgroup class="title">
+    <h1>@Resources.Resources.LogIn</h1>
+</hgroup>
 
-            <div style="padding-top:30px" class="panel-body">
+<section id="loginForm">
+<h2>@Resources.Resources.UseALocalAccountToLogIn</h2>
+@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
-                <form id="loginform" class="form-horizontal" role="form">
+    <fieldset>
+        <legend>@Resources.Resources.LogInForm</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+                @Html.ValidationMessageFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </li>
+            <li>
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+            </li>
+        </ol>
+        <input type="submit" value="@Resources.Resources.LogIn" />
+    </fieldset>
+    <p>
+        @Html.ActionLink(@Resources.Resources.Register, "Register") @Resources.Resources.IfYouDontHaveAnAccount
+    </p>
+}
+</section>
 
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email">
-                    </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
-                    </div>
+<section class="social" id="socialLoginForm">
+    <h2>@Resources.Resources.UseAnotherServiceToLogIn</h2>
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
 
-
-
-                    <div class="input-group">
-                        <div class="checkbox">
-                            <label>
-                                <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                            </label>
-                        </div>
-                    </div>
-
-
-                    <div style="margin-top:10px" class="form-group">
-                        <!-- Button -->
-
-                        <div class="col-sm-12 controls">
-                            <button id ="btn-login" href="#" class="btn btn-success">Log in</button>
-                            <button class="btn btn-facebook"><i class="fa fa-facebook"></i></button>
-                            <button class="btn btn-twitter"><i class="fa fa-twitter"></i></button>
-
-                        </div>
-                    </div>
-
-            @*@section Scripts {
-                            @Scripts.Render("~/bundles/jqueryval")
-                        }*@
-
-
-
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

@@ -73,9 +73,9 @@ section {
 
 #map
 {
-    max-width:100%;
+    min-height:100%;
 	background: url(/content/Images/World_map.png) no-repeat;
-    height:auto;
+    background-size:cover;
 }
 
 .header-part {
@@ -524,13 +524,11 @@ button a{
     text-decoration:none;
 }
 
-
-.center-block {float: none !important} 
-
-@media (max-width: 320px) {
-    .centered {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
-    }
+#preFormating {
+white-space: pre-line;
+word-break:keep-all;
+max-width:450px;
+background-color:rgba(0, 0, 0, 0);
+margin-left:5px;
+margin-right:5px;
 }

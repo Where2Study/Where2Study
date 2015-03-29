@@ -29,9 +29,9 @@
        
             @foreach (var item in Model)
             {
-                <div class="col-lg-3 col-md-6 col-xs-12">
-                    <input type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;" title=item.naziv value=@item.naziv onclick="location.href='@Url.Action("Faculties", "Menu", new { city = item.naziv })'" />
-                    @*  <li><a button type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;"></a> <a href="~/Views/Menu/Faculties"></> @Html.ActionLink(item.naziv, "Faculties", new { city = item.naziv })</a></li>*@
+                <div class="col-lg-3 center-block">
+                   <input type="button"class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;" title=item.naziv value=@item.naziv onclick="location.href='@Url.Action("Faculties", "Menu", new { city = item.naziv })'" />
+              @*  <li><a button type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;"></a> <a href="~/Views/Menu/Faculties"></> @Html.ActionLink(item.naziv, "Faculties", new { city = item.naziv })</a></li>*@
                 </div>
             }
 
