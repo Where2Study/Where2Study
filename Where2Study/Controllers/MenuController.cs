@@ -142,7 +142,7 @@ namespace Where2Study.Controllers
                     from sm in db.smjers
                     from smt in db.smjer_teksts
                     from stsm in db.stupanj_smjers*/
-                    where gt.naziv==city && ft.naziv==faculty && j.kratica == currentLanguage && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id && gt.id_jezik==j.id && dt.id_jezik==j.id && kt.id_jezik==j.id
+                    where gt.naziv==city && ft.naziv==faculty && j.kratica == currentLanguage && f.id_sveuciliste==sv.id && svt.id_sveuciliste==sv.id && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id && gt.id_jezik==j.id && dt.id_jezik==j.id && kt.id_jezik==j.id
                     select new Faculty()
                     {
                         Continent = kt.tekst,

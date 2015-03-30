@@ -35,7 +35,17 @@ else
         <p>
         @foreach (AuthenticationClientData p in Model)
         {
-            <button type="submit" name="provider" value="@p.AuthenticationClient.ProviderName" title="@Resources.Resources.LogInUsingYour @p.DisplayName @Resources.Resources.Account">@p.DisplayName</button>
+            if (p.DisplayName=="Twitter"){
+            <button class="btn btn-twitter" name="provider" value="@p.AuthenticationClient.ProviderName" title="@Resources.Resources.LogInUsingYour @p.DisplayName @Resources.Resources.Account"><i class="fa fa-twitter"></i></button>
+            }
+            if (p.DisplayName=="Facebook"){
+            <button class="btn btn-facebook" name="provider" value="@p.AuthenticationClient.ProviderName" title="@Resources.Resources.LogInUsingYour @p.DisplayName @Resources.Resources.Account"><i class="fa fa-facebook"></i></button>
+            }
+            if (p.DisplayName=="Google"){
+            <button class="btn btn-google" name="provider" value="@p.AuthenticationClient.ProviderName" title="@Resources.Resources.LogInUsingYour @p.DisplayName @Resources.Resources.Account"><i class="fa fa-google"></i></button>
+            }
+             
+            
         }
         </p>
     </fieldset>
