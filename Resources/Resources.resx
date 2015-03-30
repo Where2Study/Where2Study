@@ -453,4 +453,7 @@
   <data name="YourPasswordHasBeenSet" xml:space="preserve">
     <value>Your password has been set.</value>
   </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Login Failure</value>
+  </data>
 </root>
