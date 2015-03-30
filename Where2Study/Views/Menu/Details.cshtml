@@ -4,7 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2> @Html.DisplayNameFor(model => model.Title)</h2>
+    <div class="col-lg-12">
+        <h2> @Html.DisplayNameFor(model => model.Title)</h2>
+    </div>
+
+
 
 <div class="col-md-6">
 
@@ -22,10 +26,11 @@
         @Html.DisplayFor(model => model.id_jezik)
     </div> *@
 
-    <div><img src="/content/Images/Slike/@Html.DisplayFor(model => model.Photo)" alt="model.Title" style="width:460px;height:auto"></div>
-   @*<div class="text-box.multi-line">@Html.TextAreaFor(modelItem => item.Description, new { @readonly = true })</div>*@
-     <pre id="preFormating">@Html.DisplayFor(model => model.Description)</pre>
-   
+    <div class="col-md-12">
+        <img class="img-responsive center-block" src="/content/Images/Slike/@Html.DisplayFor(model => model.Photo)" alt="model.Title" style="width:80%;height:auto">
+        @*<div class="text-box.multi-line">@Html.TextAreaFor(modelItem => item.Description, new { @readonly = true })</div>*@
+        <pre class="center-block" style="width:80%;background-color:rgba(0, 0, 0, 0);word-break:keep-all;white-space: pre-line;">@Html.DisplayFor(model => model.Description)</pre>
+    </div>
         
         
     @*   //Where2Study.Models.DegreeSpecialization dsm = new Where2Study.Models.DegreeSpecialization();
