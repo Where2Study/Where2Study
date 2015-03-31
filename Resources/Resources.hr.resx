@@ -424,7 +424,7 @@
     <value>Niste u mogućnosti napraviti lokalni račun. Račun s imenom \"{0}\" možda već postoji.</value>
   </data>
   <data name="UnsuccessfulLoginWithService" xml:space="preserve">
-    <value>Neuspješna prijava putem odabrane usluge.</value>
+    <value>Niste se uspjeli prijaviti putem odabrane usluge.</value>
   </data>
   <data name="UseALocalAccountToLogIn" xml:space="preserve">
     <value>Koristite lokalni račun za prijavu.</value>
@@ -452,5 +452,8 @@
   </data>
   <data name="YouveSuccessfullyAuthenticatedWith" xml:space="preserve">
     <value>Uspješno ste se autentificirali s</value>
+  </data>
+  <data name="LoginFailure" xml:space="preserve">
+    <value>Neuspješna prijava</value>
   </data>
 </root>

@@ -141,6 +141,7 @@
                      
                   </ul>
               </li>  
+              @if (Request.IsAuthenticated) {
               <li class="dropdown">
                 <a href="/CRUD/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.DataBase<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -155,6 +156,7 @@
                     <li><a href="/SpecializationText">smjer_tekst</a></li>
                 </ul>
             </li>
+              }
               <li class="visible-lg"><a href="https://docs.google.com/forms/d/1LAWvDy5ASClVgQlpqEUYVCbJ30xHM2rpqY8umhDPiBg/viewform">@Resources.Resources.Poll</a></li>
             <li class="visible-lg"><a href="/About/">@Resources.Resources.About</a></li>
             <li class="dropdown">

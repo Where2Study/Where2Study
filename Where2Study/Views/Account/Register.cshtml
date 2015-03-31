@@ -9,7 +9,9 @@
             <div class="panel-title">@Resources.Resources.RegistrationForm</div>
            @* <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>*@
         </div>
-       
+         @using (Html.BeginForm()) {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
         <div class="panel-body">
             <form id="signupform" class="form-horizontal" role="form">
 
@@ -19,10 +21,8 @@
                         <input type="text" class="form-control" name="email" placeholder="Email Address">
                     </div>
                 </div>*@
-                 @using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
-                <div class="form-group">
+               
+                <div class="form-group row">
                     <label for="username" class="col-md-3 control-label">@Resources.Resources.UserName</label>
                     <div class="col-md-9">
                         @*<input type="text" class="form-control" name="username" placeholder="Username">*@
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
+                <div class="form-group row">
                     <label for="password" class="col-md-3 control-label">@Resources.Resources.Password</label>
                     <div class="col-md-9">
                         @*<input type="password" class="form-control" name="passwd" placeholder="Password">*@
@@ -40,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group row">
                     <label for="password" class="col-md-3 control-label">@Resources.Resources.ConfirmPassword</label>
                     <div class="col-md-9">
                         @*<input type="password" class="form-control" name="passwd" placeholder="Password">*@
@@ -52,13 +52,14 @@
                 <div class="form-group">
                     <!-- Button -->
                     <div class="col-md-offset-3 col-md-9">
-                                                <input type="submit" value="@Resources.Resources.Register" />
 
 @*                        <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Sign Up</button>
                         <span style="margin-left:8px;">or</span>*@
                     </div>
                 </div>
+                                         <input type="submit" value="@Resources.Resources.Register" />
 
+                     
                 <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
 
                     <div class="col-md-offset-3 col-md-9">
@@ -68,13 +69,47 @@
                 </div>
 
 
-                 }
+                 
             </form>
             
         </div>
-        
+         }
     </div>
 </div>
+
+@*@model Where2Study.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Create a new account.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>@Resources.Resources.RegistrationForm</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+        </ol>
+        <input type="submit" value="@Resources.Resources.Register" />
+    </fieldset>*@
+
         
 @*@section Scripts {
             @Scripts.Render("~/bundles/jqueryval")
