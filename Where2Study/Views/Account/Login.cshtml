@@ -10,63 +10,44 @@
             <div class="panel-heading">
                 <div class="panel-title">@Resources.Resources.LogInForm</div>
             </div>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-            <div style="padding-top:30px" class="panel-body">
+            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
 
-                <form id="loginform" class="form-horizontal" role="form">
+                <div style="padding: 2em; padding-top:30px" class="panel-body">
 
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        @*<input id="login-username" type="text" class="form-control" name="username" value="@Model.UserName" placeholder="username or email">*@
-                          @*@Html.LabelFor(m => m.UserName)*@
-                          @Html.TextBoxFor(m => m.UserName)
-                          @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
-                    <div style="margin-bottom: 25px" class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        @*<input id="login-password" type="password" class="form-control" name="password" placeholder="password">*@
-                        @*@Html.LabelFor(m => m.Password)*@
-                        @Html.PasswordFor(m => m.Password)
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
-                    <div class="input-group">
-                        <div class="checkbox">
-                            <label>
-                               @*<input id="login-remember" type="checkbox" name="remember" value="1"> Remember me*@
-                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox" })
-                                @Html.Label(@Resources.Resources.RememberMe, new { @class = "checkbox" })
-                            </label>
+                    <form id="registerform" class="form-horizontal" role="form">
+
+                        <div style="margin-bottom: 2em;" class="row">
+                            <label for="username" class="col-md-3 control-label">@Resources.Resources.UserName</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                @Html.TextBoxFor(m => m.UserName)
+                            </div>
+                            <div class="col-md-offset-3">@Html.ValidationMessageFor(m => m.UserName)</div>
                         </div>
-                    </div>
-                       <input type="submit" value="@Resources.Resources.LogIn" />
-                       <button type="button" onclick="window.location = 'Register'">@Resources.Resources.Register</button>
- @*   <p>
-        @Html.ActionLink(@Resources.Resources.Register, "Register") @Resources.Resources.IfYouDontHaveAnAccount
-    </p>
-*@
+
+                        <div style="margin-bottom: 2em;" class="row">
+                            <label for="password" class="col-md-3 control-label">@Resources.Resources.Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                @Html.PasswordFor(m => m.Password)
+                            </div>
+                            <div class="col-md-offset-3">@Html.ValidationMessageFor(m => m.Password)</div>
+                        </div>
+                        <div class="input-group">
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox" })
+                                    @Html.Label(@Resources.Resources.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <input type="submit" value="@Resources.Resources.LogIn" />
+                        <button type="button" onclick="window.location = 'Register'">@Resources.Resources.Register</button>
                     </form>
-                    </div>
-    
-}
-            @*<h2>@Resources.Resources.UseAnotherServiceToLogIn</h2>*@
+                </div>
+            }
             @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-                    @*<div style="margin-top:10px" class="form-group">
-                        <!-- Button -->
-
-                        <div class="col-sm-12 controls">
-                            <button class="btn btn-google"><i class="fa fa-google"></i></button>
-                            <button class="btn btn-facebook"><i class="fa fa-facebook"></i></button>
-                            <button class="btn btn-twitter"><i class="fa fa-twitter"></i></button>
-
-                        </div>
-                    </div>*@
-
-            @*@section Scripts {
-                            @Scripts.Render("~/bundles/jqueryval")
-                        }*@
-
-
-
