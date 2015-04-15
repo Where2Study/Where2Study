@@ -251,10 +251,11 @@ select {
     color: #444;
 }
 
-input[type="submit"] {
+input[type="submit"],button[type="button"] {
     font-size: 1.2em;
     padding: 5px;
 }
+
 
 /* TABLE
 ----------------------------------------------------------*/
