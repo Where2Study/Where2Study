@@ -63,6 +63,7 @@ namespace Where2Study.Models
                           ErrorMessageResourceName = "ContinentTitleLong")]
         public string Continent { get; set; }
         public string Photo { get; set; }
+        public string Language { get; set; }
         public List<Where2Study.Models.DegreeSpecialization> Specializations { get; set; }
     }
 }

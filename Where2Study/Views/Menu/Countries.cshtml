@@ -1,44 +1,44 @@
-﻿@model IEnumerable<Where2Study.Models.drzava_tekst>
+﻿@model IEnumerable<Where2Study.Models.findDrzavaResult>
 
-@{
+    @{
     ViewBag.Title = "Countries";
-}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <h3>@Resources.Resources.BrowseCountries</h3>
-        </div>
-    </div>
-</div>
-
-
-@if (@Model.Count() != 0)
-{
-    <p>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    @Resources.Resources.SelectFromb @Model.Count() @Resources.Resources.countries:
-                </div>
+    }
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>@Resources.Resources.BrowseCountries</h3>
             </div>
         </div>
-    </p>}
+    </div>
 
-<div class="container">
-    <div class="row">
-        <ul">
-            @foreach (var item in Model)
-            {
-                <div class="col-lg-3 col-md-6 col-xs-12">
-                    <input type="button"class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;" value=@item.naziv title=item.naziv onclick="location.href='@Url.Action("Cities", "Menu", new { country = item.naziv })    '" />
 
-                   @* <li><button type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;">@Html.ActionLink(item.naziv, "Cities", new { country = item.naziv })</button></li>*@
+    @if (@Model.Count() != 0)
+{
+        <p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        @Resources.Resources.SelectFromb @Model.Count() @Resources.Resources.countries:
+                    </div>
                 </div>
+            </div>
+        </p>}
+
+    <div class="container">
+        <div class="row">
+            <ul">
+                @foreach (var item in Model)
+            {
+                    <div class="col-lg-3 col-md-6 col-xs-12">
+                        <input type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;" value=@item.naziv title=item.naziv onclick="location.href='@Url.Action("Cities", "Menu", new { country = item.naziv })    '" />
+
+                        @* <li><button type="button" class="btn btn-primary btn-lg" style="margin:0.27em;width:100%;">@Html.ActionLink(item.naziv, "Cities", new { country = item.naziv })</button></li>*@
+                    </div>
             }
 
-        </ul>
+                </ul>
+        </div>
+        <br />
     </div>
- <br />
-</div>
 
 

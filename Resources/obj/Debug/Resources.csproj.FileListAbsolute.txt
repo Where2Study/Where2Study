@@ -38,3 +38,12 @@ D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.csproj.Gener
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\hr\Resources.resources.dll
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.dll
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.pdb
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\bin\Debug\Resources.dll
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\bin\Debug\Resources.pdb
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\bin\Debug\hr\Resources.resources.dll
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.Resources.resources
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.Resources.hr.resources
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\hr\Resources.resources.dll
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.dll
+C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.pdb

@@ -1,0 +1,108 @@
+﻿@model Where2Study.Models.Faculty
+
+@{
+    ViewBag.Title = "Create1";
+}
+
+<h2>Create1</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Faculty</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.University)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.University)
+            @Html.ValidationMessageFor(model => model.University)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WebSite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WebSite)
+            @Html.ValidationMessageFor(model => model.WebSite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Country)
+            @Html.ValidationMessageFor(model => model.Country)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Continent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Continent)
+            @Html.ValidationMessageFor(model => model.Continent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Photo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Photo)
+            @Html.ValidationMessageFor(model => model.Photo)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
