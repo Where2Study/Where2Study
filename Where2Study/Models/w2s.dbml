@@ -202,4 +202,23 @@
       <Association Name="grad_sveuciliste" Member="grad" ThisKey="id_grad" OtherKey="id" Type="grad" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
+  <Table Name="dbo.fakultet_komentari" Member="fakultet_komentaris">
+    <Type Name="fakultet_komentari">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_fakultet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_user" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="komentar" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="vrijeme" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.findDrzava" Method="findDrzava" IsComposable="true">
+    <Parameter Name="jezik_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="findDrzavaResult">
+      <Column Name="id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_drzava" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_jezik" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="naziv" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="opis" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

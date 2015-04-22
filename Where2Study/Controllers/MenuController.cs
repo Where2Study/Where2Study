@@ -49,7 +49,12 @@ namespace Where2Study.Controllers
             SiteLanguages.GetAllLanguages();
             var db = new w2sDataContext(); 
             var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-            var countries = from d in db.drzavas
+            //var jezikId = (from j in db.jeziks
+            //              where j.kratica==currentLanguage
+            //              select j.id).ElementAt(0);
+            var countries = (from fd in db.findDrzava(3)
+                            select fd).AsEnumerable();
+           /* var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
                             from k in db.kontinents
                             from kt in db.kontinent_teksts
@@ -110,8 +115,8 @@ namespace Where2Study.Controllers
                         Title = ft.naziv,
                         Description = ft.opis,
                         WebSite = f.web,
-                        Photo = f.slika
-
+                        Photo = f.slika,
+                        Language = j.ime_jezika
                     }).ToList();
             return View(u);
         }
@@ -155,6 +160,7 @@ namespace Where2Study.Controllers
                         Description = ft.opis,
                         WebSite = f.web,
                         Photo = f.slika,
+                        Language = j.ime_jezika,
                         Specializations = DegSpecDetails(f.id) 
                     };
             foreach (var item in u)
@@ -169,6 +175,7 @@ namespace Where2Study.Controllers
                 fac.Description = item.Description;
                 fac.WebSite = item.WebSite;
                 fac.Photo = item.Photo;
+                fac.Language = item.Language;
                 fac.Specializations = item.Specializations;
             }
 

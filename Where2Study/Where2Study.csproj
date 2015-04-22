@@ -159,9 +159,10 @@
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\ContinentController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
-    <Compile Include="Controllers\CRUDController.cs" />
+    <None Include="Controllers\CRUDController1.cs" />
     <Compile Include="Controllers\DegreeSpecializationController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\CRUDController.cs" />
     <Compile Include="Controllers\FacultyTextController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -178,17 +179,26 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\Continent.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\DegreeSpecialization.cs" />
     <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Faculty.cs" />
-    <Compile Include="Models\w2s.designer.cs" />
+    <Compile Include="Models\w2s2.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>w2s.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\w2sRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\SiteLanguages.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Where2Study-20140122073505.mdf" />
+    <Content Include="App_Data\aspnet-Where2Study-20140122073505_log.ldf">
+      <DependentUpon>aspnet-Where2Study-20140122073505.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\w2s.mdf" />
     <Content Include="App_Data\w2s_log.ldf">
       <DependentUpon>w2s.mdf</DependentUpon>
@@ -379,7 +389,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Menu\Details.cshtml" />
     <Content Include="Views\Faculty\Details.cshtml" />
-    <Content Include="Views\CRUD\Index.cshtml" />
+    <Content Include="Views\CRUD\Index1.cshtml" />
     <Content Include="Views\CRUD\City\Delete.cshtml" />
     <Content Include="Views\CRUD\City\Deleted.cshtml" />
     <Content Include="Views\CRUD\City\Details.cshtml" />
@@ -436,6 +446,10 @@
     <Content Include="Views\CRUD\UniversityText\Index.cshtml" />
     <Content Include="Views\CRUD\City\Create.cshtml" />
     <Content Include="Views\CRUD\Web.config" />
+    <Content Include="Views\Menu\Countriesx.cshtml" />
+    <Content Include="Views\Menu\Countriesfd.cshtml" />
+    <Content Include="Views\Faculty\Create1.cshtml" />
+    <Content Include="Views\CRUD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

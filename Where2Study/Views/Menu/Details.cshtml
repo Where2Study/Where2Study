@@ -3,13 +3,13 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<div class="row">
     <div class="col-lg-12">
         <h2> @Html.DisplayNameFor(model => model.Title)</h2>
     </div>
+</div>
 
-
-
+<div class="row">
 <div class="col-md-6">
 
 <fieldset>
@@ -99,3 +99,16 @@ foreach (var item in Model.Specializations) {
     @Html.ActionLink("Back to List", "Index")
 </p>
             </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="center-block" style="width:80%">
+           <div class="row">
+               <div class="col-md-12">
+                   <div style="display:inline">ime</div>
+                   <div style="display:inline">vrijeme/datum</div>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
