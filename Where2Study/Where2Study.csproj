@@ -193,6 +193,8 @@
     <Compile Include="Models\w2sRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\SiteLanguages.cs" />
+    <Content Include="Views\Language\LanguageAjax.cshtml" />
+    <Content Include="Views\Language\LangAjax.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-Where2Study-20140122073505.mdf" />

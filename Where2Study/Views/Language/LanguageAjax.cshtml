@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Where2Study.Models.jezik>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    @{
+        Layout = "";
+    }
+    @foreach (var jezik in Model)
+    {
+        @jezik.id
+        @jezik.ime_jezika
+    }

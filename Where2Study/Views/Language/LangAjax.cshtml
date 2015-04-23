@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Where2Study.Models.jezik>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    @{
+        Layout = "";
+    }
+<html>
+    @foreach (var jezik in Model)
+    {
+       @Html.ActionLink(jezik.ime_jezika, "", "home")
+    }
+</html>
