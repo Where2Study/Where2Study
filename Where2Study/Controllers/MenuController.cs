@@ -52,7 +52,14 @@ namespace Where2Study.Controllers
             //var jezikId = (from j in db.jeziks
             //              where j.kratica==currentLanguage
             //              select j.id).ElementAt(0);
-            var countries = (from fd in db.findDrzava(3)
+            var cL = 4;
+            switch (currentLanguage)
+            {
+                case "hr": cL = 3; break;
+                case "en": cL = 4; break;
+                default: cL = 4; break;
+            }
+            var countries = (from fd in db.findDrzava(cL)
                             select fd).AsEnumerable();
            /* var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
