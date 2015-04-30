@@ -291,6 +291,24 @@ namespace Where2Study.Models
             return db.sveuciliste_teksts.SingleOrDefault(d => d.id == id);
         }
 
+        public static List<sveuciliste_tekst> AllUniversities = new List<sveuciliste_tekst> { };
+
+        public static void GetAllUniversities(string country)
+        {
+            AllUniversities.Clear();
+            SiteLanguages.GetAllLanguages();
+            var db = new w2sDataContext();
+            var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+            var universities = from d in db.drzavas
+                               from dt in db.drzava_teksts
+                               from g in db.grads
+                               from s in db.sveucilistes
+                               from st in db.sveuciliste_teksts
+                               from j in db.jeziks
+                               where dt.naziv == country && j.kratica == currentLanguage && st.id_jezik == j.id && g.id_drzava == d.id && dt.id_drzava == d.id && g.id==s.id_grad && s.id == st.id_sveuciliste
+                               select st;
+            foreach (var i in universities) AllUniversities.Add(i);
+        }
 
         public void Add(sveuciliste_tekst university)
         {

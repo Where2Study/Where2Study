@@ -1,4 +1,8 @@
 ﻿@model Where2Study.Models.Faculty
+<link href="D:/PROGRAMIRANJE/P9/Projekt/Probni/Where2Study/Where2Study/Content/chosen.min.css" rel="stylesheet" />
+<script src="D:/PROGRAMIRANJE/P9/Projekt/Probni/Where2Study/Where2Study/Content/chosen.jquery.min.js"></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
 @{
     ViewBag.Title = "Index";
@@ -6,27 +10,90 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
     <fieldset>
         <legend>Faculty</legend>
-
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.Language)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Language)
+            @Html.DropDownListFor(model => model.Language, new SelectList(Where2Study.SiteLanguages.AvailableLanguages, "LangFullName", "LangFullName"))
             @Html.ValidationMessageFor(model => model.Language)
-        </div>
-        <div class="editor-label">
+        </div>*@
+
+        <b class="editor-label">
+            @Html.LabelFor(model => model.Continent)
+        </b>
+        @*<a class="editor-field" id="ddlcontinents">
+            @Html.DropDownListFor(model => model.Continent, new SelectList(Where2Study.Models.w2sRepository.AllContinents, "tekst", "tekst"))
+            @Html.ValidationMessageFor(model => model.Continent)
+        </a>*@
+        <select class="chosen" style="width:initial;">
+            @{
+                Where2Study.Models.w2sRepository.GetAllContinents();
+                foreach(var continent in Where2Study.Models.w2sRepository.AllContinents){
+                  	<option>@continent.tekst</option>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.Continent)
+        </select>
+
+
+        <b class="editor-label">
+            @Html.LabelFor(model => model.Country)
+        </b>
+       @* <a class="editor-field">
+            @Html.DropDownListFor(model => model.Country, new SelectList(Where2Study.Models.w2sRepository.AllCountries, "naziv", "naziv"))
+            @Html.ValidationMessageFor(model => model.Country)
+        </a>*@
+        <select class="chosen" style="width:auto+50px;">
+            @{
+                Where2Study.Models.w2sRepository.GetAllCountries("Europa");
+                foreach(var country in Where2Study.Models.w2sRepository.AllCountries){
+                  	<option>@country.naziv</option>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.Country)
+        </select>
+
+        <b class="editor-label">
+            @Html.LabelFor(model => model.City)
+        </b>
+        @*<a class="editor-field">
+            @Html.EditorFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City)
+        </a>*@
+        <select class="chosen" style="width:auto+50px;">
+            @{
+                Where2Study.Models.w2sRepository.GetAllCities("Hrvatska");
+                foreach(var city in Where2Study.Models.w2sRepository.AllCities){
+                  	<option>@city.naziv</option>
+                }
+            }
+            @Html.ValidationMessageFor(model => model.City)
+        </select>
+
+        <b class="editor-label">
             @Html.LabelFor(model => model.University)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.University)
+        </b>
+        <select class="chosen" style="width:auto+50px;">
+            @{
+                Where2Study.Models.w2sRepository.GetAllUniversities("Hrvatska");
+                foreach(var university in Where2Study.Models.w2sRepository.AllUniversities){
+                  	<option>@university.naziv</option>
+                }
+            }
             @Html.ValidationMessageFor(model => model.University)
-        </div>
+        </select>
+
+<script type="text/javascript">
+    $(".chosen").select2()
+</script>
+
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Title)
@@ -40,7 +107,7 @@
             @Html.LabelFor(model => model.Description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
+            @Html.TextAreaFor(model => model.Description)
             @Html.ValidationMessageFor(model => model.Description)
         </div>
 
@@ -68,30 +135,9 @@
             @Html.ValidationMessageFor(model => model.WebSite)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.City)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.City)
-            @Html.ValidationMessageFor(model => model.City)
-        </div>
+       
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Country)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Country)
-            @Html.ValidationMessageFor(model => model.Country)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Continent)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Continent)
-            @Html.ValidationMessageFor(model => model.Continent)
-        </div>
-
+       
         <div class="editor-label">
             @Html.LabelFor(model => model.Photo)
         </div>
@@ -112,3 +158,18 @@
 @*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }*@
+
+<body>
+
+
+
+<select class="chzn-select" multiple="true" name="faculty" style="width:200px;">
+        <option value="AC">A</option>
+        <option value="AD">B</option>
+        <option value="AM">C</option>
+        <option value="AP">D</option>
+</select>
+    <script type="text/javascript">
+        $(".chzn-select").select2();
+</script>
+</body>
