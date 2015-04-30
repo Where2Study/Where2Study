@@ -241,7 +241,7 @@
     <value>Mora biti kraće od 10000 znakova</value>
   </data>
   <data name="UniversityDescriptionRequired" xml:space="preserve">
-    <value>Potrebno je unijeti opis fakulteta</value>
+    <value>Potrebno je unijeti opis sveučilišta</value>
   </data>
   <data name="FacultyDescription" xml:space="preserve">
     <value>Opis fakulteta</value>
