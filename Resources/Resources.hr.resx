@@ -456,4 +456,7 @@
   <data name="LoginFailure" xml:space="preserve">
     <value>Neuspješna prijava</value>
   </data>
+  <data name="Where2StudyTeam" xml:space="preserve">
+    <value>Where 2 Study tim</value>
+  </data>
 </root>
