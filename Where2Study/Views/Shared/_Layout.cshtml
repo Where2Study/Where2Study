@@ -61,59 +61,33 @@
               <li class="dropdown">
                   <a href="/Menu/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.Browse <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                      @*{
-                    --treba nekako ucitat iz baze podatke?  (mozda)
-                    @model IEnumerable<Where2Study.Models.kontinent_tekst>
-                    foreach (var)
-                    {
-                        <li>
-                            @Html.ActionLink(item.tekst, "Countries", new { continent = item.tekst })
-                        </li>
-                    }
-                }*@
-            @*@{
-                Where2Study.Controllers.MenuController.Index();
-                var db = new Where2Study.Models.w2sDataContext();
-                var currentLanguage = System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-                var continents = from c in db.kontinent_teksts
-                                 from j in db.jeziks
-                                 where j.kratica == currentLanguage && c.id_jezik == j.id
-                                 select c;
-@model IEnumerable<Where2Study.Models.kontinent_tekst>
-  
-    foreach (var item in Model)
-    {
-        <li>@Html.ActionLink(item.tekst, "Countries", new {continent=item.tekst})</li>
-    }                    
-                
-            }*@
             @{ Where2Study.Models.w2sRepository.GetAllContinents();
-                foreach (var continent in Where2Study.Models.w2sRepository.AllContinents)
+                foreach (var continent in Where2Study.Models.w2sRepository.AllContinents.ToList())
                {
                    <li class="dropdown-submenu"><a tabindex="-1" href="/Menu/Countries?continent=@continent.tekst"> @continent.tekst</a>
                       <ul class="dropdown-menu"> 
                           @{ Where2Study.Models.w2sRepository.GetAllCountries(continent.tekst);
-                            foreach (var country in Where2Study.Models.w2sRepository.AllCountries)
+                            foreach (var country in Where2Study.Models.w2sRepository.AllCountries.ToList())
                             {
                                 <li class="dropdown-submenu"><a href="/Menu/Cities?country=@country.naziv">@country.naziv</a>
                                    <ul class="dropdown-menu">
                                       @{ Where2Study.Models.w2sRepository.GetAllCities(country.naziv);
-                                          foreach (var city in Where2Study.Models.w2sRepository.AllCities)
+                                          foreach (var city in Where2Study.Models.w2sRepository.AllCities.ToList())
                                           {
                                               <li class="dropdown-submenu"><a href="/Menu/Faculties?City=@city.naziv">@city.naziv</a>
                                                   <ul class="dropdown-menu">
                                                      @{ Where2Study.Models.w2sRepository.GetAllFaculties(city.naziv);
-                                                          foreach (var faculty in Where2Study.Models.w2sRepository.AllFaculties)
+                                                          foreach (var faculty in Where2Study.Models.w2sRepository.AllFaculties.ToList())
                                                           {
                                                              <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@faculty.Title</a>
                                                                 <ul class="dropdown-menu">
                                                                     @{ Where2Study.Models.w2sRepository.GetAllDegrees();
-                                                                         foreach (var degree in Where2Study.Models.w2sRepository.AllDegrees)
+                                                                         foreach (var degree in Where2Study.Models.w2sRepository.AllDegrees.ToList())
                                                                          {
                                                                             <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@degree.naziv</a>
                                                                                <ul class="dropdown-menu">
                                                                                    @{ Where2Study.Models.w2sRepository.GetAllDegreeSpec(faculty.Title, degree.id_stupanj);
-                                                                                        foreach (var specialization in Where2Study.Models.w2sRepository.AllDegreeSpec)
+                                                                                        foreach (var specialization in Where2Study.Models.w2sRepository.AllDegreeSpec.ToList())
                                                                                         {
                                                                                             <li> <a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@specialization.Specialization</a></li> 
                                                                                         }
@@ -166,7 +140,6 @@
                     <li><a href="http://www.openculture.com/freeonlinecourses">@Resources.Resources.FreeOnlCour</a></li>
                 </ul>
             </li>
-            @*<li><a href="/Contacts/">@Resources.Resources.Contacts</a></li>*@
             
             <li class="dropdown">
                 <a href="/Language/" data-toggle="dropdown" class="dropdown-toggle">@Resources.Resources.Language<b class="caret"></b></a>
@@ -182,48 +155,11 @@
             </li>
                         </ul>
 
-            @*<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
             <ul class="nav navbar-nav navbar-right">
                 <li>
               @Html.Partial("_LoginPartial")
             </li>
                 </ul>
-
-            @*<li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Messages <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Inbox</a></li>
-                <li><a href="#">Drafts</a></li>
-                <li><a href="#">Sent Items</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Trash</a></li>
-            </ul>
-        </li>
-        <li class="dropdown pull-right">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">Admin <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </li>*@
-        
-                   @* <li><a href="#">Inbox</a></li>
-                    <li><a href="#">Drafts</a></li>
-                    <li><a href="#">Sent Items</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Trash</a></li> *@
-       
-
-                <!-- Primjer razor liste
-
-                 <li>@Html.ActionLink("Osnovne informacije", "info", "home")</li>
-                 <li>@Html.ActionLink("Mentori", "mentori", "home")</li>
-                 <li>@Html.ActionLink("Termini predavanja", "termini", "home")</li>
-                 <li>@Html.ActionLink("Galerija", "galerija", "home")</li>
-                 <li>@Html.ActionLink("Youtube", "youtube", "home")</li>
-                 <li>@Html.ActionLink("Kontakt informacije", "kontakt", "home")</li> -->
         </div><!--/.nav-collapse -->
       </div>
     </nav>
