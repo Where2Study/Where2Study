@@ -119,26 +119,26 @@
                 source: Continents
             });
         });
-        
-        $("#Continent").change(function () {
+
+        $("#Continent").on("autocompletechange", function () {
             $.ajax({
                 url: "getCountries/" + $("#Continent").val(),
                 dataType: "json"
             })
-            .done(function (msg) {
-                Countries = msg;
-                $("#Country").autocomplete({
-                    source: Countries
-                });
-            });
+           .done(function (msg) {
+               Countries = msg;
+               $("#Country").autocomplete({
+                   source: Countries
+               });
+           });
         });
 
-        $("#Country").change(function () {
+        $("#Country").on("autocompletechange", function () {
             $.ajax({
-                url: "getCities/"+ $("#Country").val(),
+                url: "getCities/" + $("#Country").val(),
                 dataType: "json"
             })
-            .done(function (msg){
+            .done(function (msg) {
                 Cities = msg;
                 $("#City").autocomplete({
                     source: Cities
@@ -146,7 +146,7 @@
             });
         });
 
-        $("#City").change(function () {
+        $("#City").on("autocompletechange", function () {
             $.ajax({
                 url: "getFaculties/" + $("#City").val(),
                 dataType: "json"
