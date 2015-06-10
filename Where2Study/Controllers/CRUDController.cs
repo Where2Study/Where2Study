@@ -33,7 +33,9 @@ namespace Where2Study.Controllers
                         from j in db.jeziks
                         where j.kratica == currentLanguage && k.id_jezik == j.id
                         select k.tekst;
-
+           /* Where2Study.Models.w2sRepository.GetAllContinents();
+            var queue = Where2Study.Models.w2sRepository.AllContinents.ToList();*/
+            
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue.ToArray());
 

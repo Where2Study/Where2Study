@@ -262,7 +262,7 @@
         <classShapeMoniker Id="564af5ee-1fd3-4ebc-b640-ca2c39155d78" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6 : 6.22199625651042); (5.375 : 6.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(6 : 6.22199625651042); (5.82333333333333 : 6.22199625651042 : JumpStart); (5.65666666666667 : 6.22199625651042 : JumpEnd); (5.375 : 6.22199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/w2sDataContext/smjer/smjer_stupanj_smjer" />
       <nodes>
         <classShapeMoniker Id="18fb9c24-e697-42f2-b934-85f56ce73896" />
@@ -283,7 +283,7 @@
         <classShapeMoniker Id="49ca7efe-7fdd-47d2-82aa-9da4b89b7908" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 2.96454808030349); (2.125 : 2.96454808030349); (2.125 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 2.96454808030349); (2.125 : 2.96454808030349); (2.125 : 3.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/w2sDataContext/jezik/jezik_stupanj_tekst" />
       <nodes>
         <classShapeMoniker Id="28040877-6300-4dcb-94b9-bbc53c75ba45" />
@@ -311,10 +311,10 @@
         <classShapeMoniker Id="1c9c07ba-765e-4f3e-bc70-6988afca9cf8" />
       </nodes>
     </associationConnector>
-    <classShape Id="b1d76ffa-637a-4da2-bb8f-fa1e3b3e73f7" absoluteBounds="1.25, 0.75, 2, 1.7708968098958331">
+    <classShape Id="b1d76ffa-637a-4da2-bb8f-fa1e3b3e73f7" absoluteBounds="1.375, 0.75, 2, 1.7708968098958331">
       <DataClassMoniker Name="/w2sDataContext/fakultet_komentari" />
       <nestedChildShapes>
-        <elementListCompartment Id="75d2f643-e5c6-4985-a1ea-bc13ae3bb7e8" absoluteBounds="1.2650000000000001, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="75d2f643-e5c6-4985-a1ea-bc13ae3bb7e8" absoluteBounds="1.3900000000000001, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

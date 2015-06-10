@@ -52,14 +52,8 @@ namespace Where2Study.Controllers
             //var jezikId = (from j in db.jeziks
             //              where j.kratica==currentLanguage
             //              select j.id).ElementAt(0);
-            var cL = 4;
-            switch (currentLanguage)
-            {
-                case "hr": cL = 3; break;
-                case "en": cL = 4; break;
-                default: cL = 4; break;
-            }
-            var countries = (from fd in db.findDrzava(cL)
+            
+            var countries = (from fd in db.findDrzava(currentLanguage)
                             select fd).AsEnumerable();
            /* var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
@@ -84,13 +78,15 @@ namespace Where2Study.Controllers
             SiteLanguages.GetAllLanguages();
             var db = new w2sDataContext();
             var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-            var cities = from g in db.grads
+            var cities = (from fd in db.findGrad(currentLanguage, country)
+                             select fd).AsEnumerable();
+            /*var cities = from g in db.grads
                          from gt in db.grad_teksts
                          from d in db.drzavas
                          from dt in db.drzava_teksts
                          from j in db.jeziks
                          where dt.naziv==country && j.kratica == currentLanguage && gt.id_jezik == j.id && g.id_drzava==d.id && dt.id_drzava==d.id && g.id==gt.id_grad
-                         select gt;
+                         select gt;*/
             // var cont = new Continent { Title = continent };
             return View(cities);
         }
