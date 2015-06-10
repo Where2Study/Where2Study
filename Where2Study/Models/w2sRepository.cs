@@ -37,7 +37,7 @@ namespace Where2Study.Models
             return db.drzava_teksts;
         }
 
-        public static List<drzava_tekst> AllCountries = new List<drzava_tekst> { };
+        public static List<String> AllCountries = new List<String> { };
 
         public static void GetAllCountries(string continent)
         {
@@ -45,14 +45,24 @@ namespace Where2Study.Models
             SiteLanguages.GetAllLanguages();
             var db = new w2sDataContext();
             var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-            var countries = from d in db.drzavas
+            var countries = from fd in db.findDrzava(currentLanguage)
+                             select fd;
+                            /* select new drzava_tekst()
+                            {
+                                id = Convert.ToInt32(fd.id),
+                                id_drzava = fd.id_drzava,
+                                id_jezik = fd.id_jezik,
+                                naziv = fd.naziv,
+                                opis = fd.opis
+                            }).ToList();**/
+           /* var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
                             from k in db.kontinents
                             from kt in db.kontinent_teksts
                             from j in db.jeziks
                             where kt.tekst == continent && j.kratica == currentLanguage && dt.id_jezik == j.id && d.id_kontinent == k.id && kt.id_kontinent == k.id && d.id == dt.id_drzava
-                            select dt;
-            foreach (var i in countries) AllCountries.Add(i);
+                            select dt;*/
+            foreach (var i in countries) AllCountries.Add(i.naziv);
         }
 
         public drzava_tekst Get_drzava_tekst(int id)
