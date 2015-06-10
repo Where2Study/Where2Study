@@ -91,11 +91,11 @@ namespace Where2Study.Controllers
 
             var db = new w2sDataContext();
             var queue = from gt in db.grad_teksts
-                        from f in db.fakultets
-                        from ft in db.fakultet_teksts
+                        from s in db.sveucilistes
+                        from st in db.sveuciliste_teksts
                         from j in db.jeziks
-                        where gt.naziv == id && j.kratica == currentLanguage && ft.id_jezik == j.id && ft.id_fakultet == f.id && f.id_grad == gt.id_grad
-                        select ft.naziv;
+                        where gt.naziv == id && j.kratica == currentLanguage && st.id_jezik == j.id && st.id_sveuciliste == s.id && s.id_grad == gt.id_grad
+                        select st.naziv;
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue);
