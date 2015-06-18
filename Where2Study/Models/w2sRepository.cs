@@ -96,7 +96,20 @@ namespace Where2Study.Models
            db.drzava_teksts.DeleteOnSubmit(country);
             //db.drzavas.DeleteOnSubmit(country);
         }
-        
+
+        public void Add(grad city)
+        {
+            {
+                db.grads.InsertOnSubmit(city);
+            }
+        }
+
+        public void Add(drzava country)
+        {
+            {
+                db.drzavas.InsertOnSubmit(country);
+            }
+        }
 
         public IQueryable<grad_tekst> FindAllCities()
         {
@@ -211,6 +224,7 @@ namespace Where2Study.Models
                      from kt in db.kontinent_teksts
                      from j in db.jeziks
                      where gt.naziv == city && j.kratica == currentLanguage && ft.id_fakultet == f.id && f.id_grad == g.id && g.id_drzava == d.id && d.id_kontinent == kt.id_kontinent && gt.id_grad == g.id && dt.id_drzava == d.id && ft.id_jezik == j.id && gt.id_jezik == j.id && dt.id_jezik == j.id && kt.id_jezik == j.id
+                     orderby ft.naziv
                      select new Faculty()
                      {
                          Continent = kt.tekst,
@@ -350,7 +364,7 @@ namespace Where2Study.Models
 
         public static List<stupanj_tekst> AllDegrees = new List<stupanj_tekst> { };
 
-        public static void GetAllDegrees()
+        public static void GetAllDegrees(String fakultet)
         {
             AllDegrees.Clear();
             SiteLanguages.GetAllLanguages();
@@ -360,10 +374,22 @@ namespace Where2Study.Models
             var degrees = from j in db.jeziks
                           from s in db.stupanjs
                           from st in db.stupanj_teksts
-                          where j.kratica == currentLanguage && st.id_stupanj == s.id && st.id_jezik == j.id
+                          from f in db.fakultets
+                          from ft in db.fakultet_teksts
+                          from sm in db.smjers
+                          from stsm in db.stupanj_smjers
+                          where j.kratica == currentLanguage && st.id_stupanj  == s.id && st.id_jezik == j.id && f.id == sm.id_fakultet && f.id == ft.id_fakultet && ft.naziv == fakultet && st.id_stupanj == stsm.id_stupanj && sm.id == stsm.id_smjer
+                          orderby s.id
                           select st;
-            foreach (var i in degrees) AllDegrees.Add(i);
-
+            foreach (var i in degrees)
+            {
+                bool boo=false;
+                foreach (var j in AllDegrees) 
+                {
+                    if (i.id_stupanj==j.id_stupanj) boo = true;
+                }
+                if (boo==false) AllDegrees.Add(i);
+            }
            }
 
 

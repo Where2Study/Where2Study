@@ -30,7 +30,6 @@ C:\xampp\htdocs\TESTNO\Where2Study\Resources\obj\Debug\Resources.pdb
 D:\Maja\Start up\Projekti\Where2Study\Resources\bin\Debug\Resources.dll
 D:\Maja\Start up\Projekti\Where2Study\Resources\bin\Debug\Resources.pdb
 D:\Maja\Start up\Projekti\Where2Study\Resources\bin\Debug\hr\Resources.resources.dll
-D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.Resources.resources
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.Resources.hr.resources
 D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
@@ -47,3 +46,4 @@ C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\hr\Resources.reso
 C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.dll
 C:\Users\Luka\Documents\GitHub\Where2Study\Resources\obj\Debug\Resources.pdb
 D:\PROGRAMIRANJE\P9\Projekt\Probni\Where2Study\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache
+D:\Maja\Start up\Projekti\Where2Study\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache

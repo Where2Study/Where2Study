@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Where2Study.Models;
 using System.Web.Script.Serialization;
 using System.Threading;
+using System.Collections.Specialized;
 
 namespace Where2Study.Controllers
 {
@@ -144,12 +145,24 @@ namespace Where2Study.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
-        public ActionResult Create(fakultet_tekst faculty)
+        public ActionResult Create(drzava country, drzava_tekst country_text, grad city, grad_tekst city_text, fakultet faculty, fakultet_tekst faculty_text, sveuciliste university, sveuciliste_tekst university_text)
+ 
         {
             if (ModelState.IsValid)
             {
+                NameValueCollection nvc = Request.Form;
                 try
                 {
+                    UpdateModel(country);
+                    repository.Add(country);
+                    repository.Save();
+                    return RedirectToAction("Details", new { id = country.id });
+
+                    UpdateModel(city);
+                    repository.Add(city);
+                    repository.Save();
+                    return RedirectToAction("Details", new { id = city.id });
+
                     UpdateModel(faculty);
                     repository.Add(faculty);
                     repository.Save();
