@@ -81,7 +81,7 @@
                                                           {
                                                              <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@faculty.Title</a>
                                                                 <ul class="dropdown-menu">
-                                                                    @{ Where2Study.Models.w2sRepository.GetAllDegrees();
+                                                                    @{ Where2Study.Models.w2sRepository.GetAllDegrees(faculty.Title);
                                                                          foreach (var degree in Where2Study.Models.w2sRepository.AllDegrees.ToList())
                                                                          {
                                                                             <li class="dropdown-submenu"><a href="/Menu/Details?city=@city.naziv&faculty=@faculty.Title">@degree.naziv</a>
