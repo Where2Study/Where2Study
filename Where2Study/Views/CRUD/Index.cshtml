@@ -15,7 +15,7 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Faculty</legend>
+        <legend>@Resources.Resources.FacultyTitle</legend>
 
         <b class="editor-label">
             @Html.LabelFor(model => model.Continent)
