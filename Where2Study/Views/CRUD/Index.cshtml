@@ -10,8 +10,9 @@
 
 <h2>Index</h2>
 
+@*@using (Html.BeginForm("Create","CRUD",FormMethod.Post))*@
 @using (Html.BeginForm())
-{
+    {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
     <fieldset>

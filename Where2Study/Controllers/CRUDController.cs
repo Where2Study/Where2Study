@@ -106,7 +106,7 @@ namespace Where2Study.Controllers
             return ret;
         }
 
-        [Authorize]
+        [Authorize, AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Index(fakultet faculty)
         {
             if (ModelState.IsValid)
@@ -146,8 +146,8 @@ namespace Where2Study.Controllers
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
         //public ActionResult Create(kontinent_tekst continent, drzava_tekst country_text, grad_tekst city_text, fakultet faculty, fakultet_tekst faculty_text, sveuciliste university, sveuciliste_tekst university_text)
-        public ActionResult Create(Faculty facultyEntry)
- 
+        public ActionResult Index(Faculty facultyEntry)
+        //public ActionResult Create(Faculty facultyEntry)
         {
             if (ModelState.IsValid)
             {
@@ -200,7 +200,12 @@ namespace Where2Study.Controllers
                             select dt;
                 foreach(var item in countries)
                 {
-                    if (country_text.naziv == item.naziv) countryBool=true;
+                    if (country_text.naziv == item.naziv)
+                        {
+                            countryBool = true;
+                            country.id = item.id;
+                            break;
+                        }
                 }
                 if (countryBool==false)
                     try
@@ -233,7 +238,12 @@ namespace Where2Study.Controllers
                              select gt;
                 foreach(var item in cities)
                 {
-                    if (city_text.naziv == item.naziv) cityBool=true;
+                    if (city_text.naziv == item.naziv)
+                        {
+                            cityBool = true;
+                            city.id = item.id;
+                            break;
+                        }
                 }
                 if (cityBool==false)
                     try
@@ -262,14 +272,20 @@ namespace Where2Study.Controllers
                                    select st;
                 foreach(var item in universities)
                 {
-                    if (university_text.naziv == item.naziv) cityBool=true;
+                    if (university_text.naziv == item.naziv) 
+                    {
+                        universityBool = true;
+                        university.id = item.id;
+                        break;
+                    }
+
                 }
                 if (universityBool==false)
                     try
                     {
                         university.id_grad=city.id;
                         university.adresa_sveucilista="";
-                        university.broj_telefona=null;
+                        university.broj_telefona="";
                         university.web="";
                         UpdateModel(university);
                         repository.Add(university);
@@ -293,25 +309,25 @@ namespace Where2Study.Controllers
                                 select ft;
                 foreach(var item in faculties)
                 {
-                    if (faculty_text.naziv == item.naziv) cityBool=true;
+                if (faculty_text.naziv == item.naziv) facultyBool = true;
                 }
                 if (facultyBool==false)
                     try
                     {
                         faculty.id_grad = city.id;
-                        faculty.adresa_fakulteta = "";
-                        faculty.broj_telefona = null;
-                        faculty.web = "";
+                        
                         faculty.id_sveuciliste = university.id;
                         faculty.slika = "";
                         UpdateModel(faculty);
                         repository.Add(faculty);
                         repository.Save();
 
-                        UpdateModel(faculty);
-                        repository.Add(faculty);
+                        faculty_text.id_fakultet = faculty.id;
+                        faculty_text.id_jezik = clId;
+                        UpdateModel(faculty_text);
+                        repository.Add(faculty_text);
                         repository.Save();
-                        return RedirectToAction("Details", new { id = faculty.id });
+                        return RedirectToAction("Details", "Menu" ,new { id = faculty.id });
                    }
                    catch
                    {
