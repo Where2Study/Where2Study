@@ -117,7 +117,10 @@
         .done(function (msg) {
             Continents = msg;
             $("#Continent").autocomplete({
+                minLength: 0,
                 source: Continents
+            }).focus(function () {
+                $(this).autocomplete("search", $(this).val());
             });
         });
 
@@ -129,7 +132,10 @@
            .done(function (msg) {
                Countries = msg;
                $("#Country").autocomplete({
+                   minLength: 0,
                    source: Countries
+               }).focus(function () {
+                   $(this).autocomplete("search", $(this).val());
                });
            });
         });
@@ -142,11 +148,29 @@
             .done(function (msg) {
                 Cities = msg;
                 $("#City").autocomplete({
+                    minLength: 0,
                     source: Cities
+                }).focus(function () {
+                    $(this).autocomplete("search", $(this).val());
                 });
             });
         });
 
+        $("#City").on("autocompletechange", function () {
+            $.ajax({
+                url: "getUniversities/" + $("#City").val(),
+                dataType: "json"
+            })
+            .done(function (msg) {
+                Faculties = msg;
+                $("#University").autocomplete({
+                    minLength: 0,
+                    source: Faculties
+                }).focus(function () {
+                    $(this).autocomplete("search", $(this).val());
+                });
+            });
+        });
         $("#City").on("autocompletechange", function () {
             $.ajax({
                 url: "getFaculties/" + $("#City").val(),
@@ -154,8 +178,11 @@
             })
             .done(function (msg) {
                 Faculties = msg;
-                $("#University").autocomplete({
+                $("#Title").autocomplete({
+                    minLength: 0,
                     source: Faculties
+                }).focus(function () {
+                    $(this).autocomplete("search", $(this).val());
                 });
             });
         });
