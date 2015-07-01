@@ -27,7 +27,7 @@
     </div> *@
 
     <div class="col-md-12">
-        <img class="img-responsive center-block" src="/content/Images/Slike/@Html.DisplayFor(model => model.Photo)" alt="model.Title" style="width:80%;height:auto">
+        <img class="img-responsive center-block" src="/content/Images/Slike/@Html.DisplayFor(model => model.Photo)" alt="@Html.DisplayFor(model => model.Title)" style="width:80%;height:auto">
         @*<div class="text-box.multi-line">@Html.TextAreaFor(modelItem => item.Description, new { @readonly = true })</div>*@
         <pre class="center-block" style="width:80%;background-color:rgba(0, 0, 0, 0);word-break:keep-all;white-space: pre-line;">@Html.DisplayFor(model => model.Description)</pre>
     </div>
