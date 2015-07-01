@@ -34,8 +34,6 @@ namespace Where2Study.Controllers
                         from j in db.jeziks
                         where j.kratica == currentLanguage && k.id_jezik == j.id
                         select k.tekst;
-           /* Where2Study.Models.w2sRepository.GetAllContinents();
-            var queue = Where2Study.Models.w2sRepository.AllContinents.ToList();*/
             
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue.ToArray());
@@ -45,18 +43,27 @@ namespace Where2Study.Controllers
 
         public string getCountries(string id)
         {
-            if(id == null) return "[]";
-
             SiteLanguages.GetAllLanguages();
             var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-
             var db = new w2sDataContext();
-            var queue = from kt in db.kontinent_teksts
-                        from d in db.drzavas
-                        from dt in db.drzava_teksts
-                        from j in db.jeziks
-                        where kt.tekst == id && d.id_kontinent == kt.id_kontinent && dt.id_jezik == j.id && d.id == dt.id_drzava && j.kratica == currentLanguage
-                        select dt.naziv;
+			IQueryable<string> queue;
+			if(id == null || id == "null")
+			{
+					queue = from d in db.drzavas
+							from dt in db.drzava_teksts
+							from j in db.jeziks
+							where dt.id_jezik == j.id && d.id == dt.id_drzava && j.kratica == currentLanguage
+							select dt.naziv;
+			}
+			else
+			{
+						queue = from kt in db.kontinent_teksts
+							from d in db.drzavas
+							from dt in db.drzava_teksts
+							from j in db.jeziks
+							where kt.tekst == id && d.id_kontinent == kt.id_kontinent && dt.id_jezik == j.id && d.id == dt.id_drzava && j.kratica == currentLanguage
+							select dt.naziv;
+			}
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue);
@@ -64,41 +71,104 @@ namespace Where2Study.Controllers
             return ret;
         }
 
-        public string getCities(string id)
+        public string getCities(string id, string id2)
         {
-            if(id == null) return "[]";
-
-            SiteLanguages.GetAllLanguages();
-            var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-
-            var db = new w2sDataContext();
-            var queue = from dt in db.drzava_teksts
+			// id = država, id2 = kontinent
+			SiteLanguages.GetAllLanguages();
+			var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+			var db = new w2sDataContext();
+            IQueryable<string> queue;
+			if(id == null || id == "null")
+			{
+				if(id2 == null || id2 == "null")
+				{
+					queue = from c in db.grads
+							from ct in db.grad_teksts
+							from j in db.jeziks
+							where j.kratica == currentLanguage && ct.id_jezik == j.id && ct.id_grad == c.id
+							select ct.naziv;
+				}
+				else
+				{
+					queue = from k in db.kontinents
+							from d in db.drzavas
+							from c in db.grads
+							from ct in db.grad_teksts
+							from j in db.jeziks
+							where k.id == d.id_kontinent && d.id == c.id_drzava && c.id == ct.id_grad && ct.id_jezik == j.id && j.kratica == currentLanguage
+							select ct.naziv;
+				}
+			}
+			else{
+				 queue = from dt in db.drzava_teksts
                         from c in db.grads
                         from ct in db.grad_teksts
                         from j in db.jeziks
                         where dt.naziv == id  && j.kratica == currentLanguage && ct.id_jezik == j.id && ct.id_grad == c.id && c.id_drzava == dt.id_drzava
                         select ct.naziv;
-
+			}
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue);
 
             return ret;
         }
 
-        public string getFaculties(string id)
+        public string getUniversities(string id,string id2, string id3)
         {
-            if (id == null) return "[]";
+			//id == city, id2 == country, id3 == continent
+			SiteLanguages.GetAllLanguages();
+			var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+			var db = new w2sDataContext();
+			IQueryable<string> queue;
 
-            SiteLanguages.GetAllLanguages();
-            var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
-
-            var db = new w2sDataContext();
-            var queue = from gt in db.grad_teksts
-                        from s in db.sveucilistes
-                        from st in db.sveuciliste_teksts
-                        from j in db.jeziks
-                        where gt.naziv == id && j.kratica == currentLanguage && st.id_jezik == j.id && st.id_sveuciliste == s.id && s.id_grad == gt.id_grad
-                        select st.naziv;
+            if (id == null || id=="null")
+			{
+				if(id2 == null || id2 == "null")
+				{
+					if(id3 == null || id3 == "null")
+					{
+						queue = from k in db.kontinents
+								from d in db.drzavas
+								from g in db.grads
+								from s in db.sveucilistes
+								from st in db.sveuciliste_teksts
+								from j in db.jeziks
+								where k.id == d.id_kontinent && d.id == g.id_drzava && g.id == s.id_grad && s.id == st.id_sveuciliste && st.id_jezik == j.id && j.kratica == currentLanguage
+								select st.naziv;
+					}
+					else
+					{
+						queue = from kt in db.kontinent_teksts
+								from d in db.drzavas
+								from g in db.grads
+								from s in db.sveucilistes
+								from st in db.sveuciliste_teksts
+								from j in db.jeziks
+								where kt.tekst == id3 && kt.id_kontinent == d.id_kontinent && d.id == g.id_drzava && g.id == s.id_grad && s.id == st.id_sveuciliste && st.id_jezik == j.id && j.kratica == currentLanguage
+								select st.naziv;
+					}
+				}
+				else
+				{
+					queue = from dt in db.drzava_teksts
+							from g in db.grads
+							from s in db.sveucilistes
+							from st in db.sveuciliste_teksts
+							from j in db.jeziks
+							where dt.naziv == id2 && dt.id_drzava == g.id_drzava && g.id == s.id_grad && s.id == st.id_sveuciliste && st.id_jezik == j.id && j.kratica == currentLanguage
+							select st.naziv;
+				}
+			}
+			else
+			{
+				queue = from gt in db.grad_teksts
+						from s in db.sveucilistes
+						from st in db.sveuciliste_teksts
+						from j in db.jeziks
+						where gt.naziv == id && j.kratica == currentLanguage && st.id_jezik == j.id && st.id_sveuciliste == s.id && s.id_grad == gt.id_grad
+						select st.naziv;
+			}
+				
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue);

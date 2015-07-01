@@ -124,6 +124,48 @@
             });
         });
 
+        $.ajax({
+            url: "getCountries",
+            dataType: "json"
+        })
+        .done(function (msg) {
+            Countries = msg;
+            $("#Country").autocomplete({
+                minLength: 0,
+                source: Countries
+            }).focus(function () {
+                $(this).autocomplete("search", $(this).val());
+            });
+        });
+
+        $.ajax({
+            url: "getCities",
+            dataType: "json"
+        })
+                .done(function (msg) {
+                    Cities = msg;
+                    $("#City").autocomplete({
+                        minLength: 0,
+                        source: Cities
+                    }).focus(function () {
+                        $(this).autocomplete("search", $(this).val());
+                    });
+                });
+
+        $.ajax({
+            url: "getUniversities",
+            dataType: "json"
+        })
+                .done(function (msg) {
+                    Faculties = msg;
+                    $("#University").autocomplete({
+                        minLength: 0,
+                        source: Faculties
+                    }).focus(function () {
+                        $(this).autocomplete("search", $(this).val());
+                    });
+                });
+
         $("#Continent").on("autocompletechange", function () {
             $.ajax({
                 url: "getCountries/" + $("#Continent").val(),
