@@ -25,13 +25,15 @@ namespace Where2Study.Controllers
                     from dt in db.drzava_teksts
                     from d in db.drzavas
                     from kt in db.kontinent_teksts
+                    from s in db.sveucilistes
+                    from st in db.sveuciliste_teksts
                     from j in db.jeziks
                     /*from s in db.stupanjs
                     from st in db.stupanj_teksts
                     from sm in db.smjers
                     from smt in db.smjer_teksts
                     from stsm in db.stupanj_smjers*/
-                    where j.kratica == currentLanguage && ft.id_fakultet == f.id && f.id_grad == g.id && g.id_drzava == d.id && d.id_kontinent == kt.id_kontinent && gt.id_grad == g.id && dt.id_drzava == d.id && ft.id_jezik == j.id && gt.id_jezik == j.id && dt.id_jezik == j.id && kt.id_jezik == j.id
+                    where j.kratica == currentLanguage && ft.id_fakultet == f.id && s.id_grad==g.id && st.id_sveuciliste==s.id && f.id_grad == g.id && g.id_drzava == d.id && d.id_kontinent == kt.id_kontinent && gt.id_grad == g.id && dt.id_drzava == d.id && ft.id_jezik == j.id && gt.id_jezik == j.id && dt.id_jezik == j.id && kt.id_jezik == j.id
                     select new Faculty()
                     {
                         Continent = kt.tekst,
@@ -42,8 +44,8 @@ namespace Where2Study.Controllers
                         Title = ft.naziv,
                         Description = ft.opis,
                         WebSite = f.web,
-                        Photo = f.slika
-
+                        Photo = f.slika,
+                        University = st.naziv
                     };
             return View(u);
         }
