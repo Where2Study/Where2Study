@@ -162,16 +162,19 @@ namespace Where2Study.Controllers
                 drzava_tekst country_text = new drzava_tekst();
                 country_text.naziv = facultyEntry.Country;
                 country_text.opis = "";
+                country.id = 0;
 
                 grad city = new grad();
                 grad_tekst city_text = new grad_tekst();
                 city_text.naziv = facultyEntry.City;
                 city_text.opis = "";
+                city.id = 0;
 
                 sveuciliste university = new sveuciliste();
                 university.adresa_sveucilista = ""; 
                 university.broj_telefona = null;
-                university.web = "";                           
+                university.web = "";
+                university.id = 0;
 
                 sveuciliste_tekst university_text = new sveuciliste_tekst();
                 university_text.naziv = facultyEntry.University;
@@ -194,34 +197,34 @@ namespace Where2Study.Controllers
                 var languages = from j in db.jeziks select j;
                 foreach(var item in languages) if(currentLanguage == item.kratica) clId=item.id;    
                 bool countryBool=false, cityBool=false, universityBool=false, facultyBool=false;
-                var countries = from d in db.drzavas
+                /*var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
                             where d.id == dt.id_drzava
-                            select dt;
-                foreach(var item in countries)
+                            select dt;*/
+                foreach(var item in db.drzava_teksts)
                 {
                     if (country_text.naziv == item.naziv)
                         {
                             countryBool = true;
-                            country.id = item.id;
+                            country.id = (int)(item.id_drzava);
                             break;
                         }
                 }
                 if (countryBool==false)
                     try
                     {
-                        var continents = from kt in db.kontinent_teksts
+                        /*var continents = from kt in db.kontinent_teksts
                                          from k in db.kontinents
                                          where k.id==kt.id_kontinent && kt.id_jezik==clId
-                                         select kt;
-                        foreach(var item in continents) if(continent.tekst == item.tekst) country.id_kontinent=item.id_kontinent;
+                                         select kt;*/
+                        foreach(var item in db.kontinent_teksts) if(continent.tekst == item.tekst) country.id_kontinent=item.id_kontinent;
                         UpdateModel(country);
                         repository.Add(country);
                         repository.Save();
 
                         country_text.id_drzava = country.id;
                         country_text.id_jezik = clId;
-                        country_text.opis = "";
+                        country_text.opis = null;
                         UpdateModel(country_text);
                         repository.Add(country_text);
                         repository.Save();
@@ -231,17 +234,17 @@ namespace Where2Study.Controllers
                     {
                         ModelState.AddRuleViolations(country_text.GetRuleViolations());
                     }
-
-                var cities = from g in db.grads
+                
+                /*var cities = from g in db.grads
                              from gt in db.grad_teksts
                              where g.id == gt.id_grad
-                             select gt;
-                foreach(var item in cities)
+                             select gt;*/
+                foreach(var item in db.grad_teksts)
                 {
                     if (city_text.naziv == item.naziv)
                         {
                             cityBool = true;
-                            city.id = item.id;
+                            city.id = (int)(item.id_grad);
                             break;
                         }
                 }
@@ -255,7 +258,7 @@ namespace Where2Study.Controllers
 
                         city_text.id_grad = city.id;
                         city_text.id_jezik = clId;
-                        city_text.opis = "";
+                        city_text.opis = null;
                         UpdateModel(city_text);
                         repository.Add(city_text);
                         repository.Save();
@@ -266,16 +269,16 @@ namespace Where2Study.Controllers
                     }
 
 
-                var universities = from s in db.sveucilistes
+                /*var universities = from s in db.sveucilistes
                                    from st in db.sveuciliste_teksts
                                    where s.id == st.id_sveuciliste
-                                   select st;
-                foreach(var item in universities)
+                                   select st;*/
+                foreach(var item in db.sveuciliste_teksts)
                 {
                     if (university_text.naziv == item.naziv) 
                     {
                         universityBool = true;
-                        university.id = item.id;
+                        university.id = (int)(item.id_sveuciliste);
                         break;
                     }
 
@@ -284,16 +287,16 @@ namespace Where2Study.Controllers
                     try
                     {
                         university.id_grad=city.id;
-                        university.adresa_sveucilista="";
-                        university.broj_telefona="";
-                        university.web="";
+                        university.adresa_sveucilista=university_text.naziv;
+                        university.broj_telefona=null;
+                        university.web=null;
                         UpdateModel(university);
                         repository.Add(university);
                         repository.Save();
 
                         university_text.id_sveuciliste = university.id;
                         university_text.id_jezik = clId;
-                        university_text.opis = "";
+                        university_text.opis = null;
                         UpdateModel(university_text);
                         repository.Add(university_text);
                         repository.Save();
@@ -303,21 +306,19 @@ namespace Where2Study.Controllers
                         ModelState.AddRuleViolations(university_text.GetRuleViolations());
                     }
 
-                var faculties = from f in db.fakultets
+                /*var faculties = from f in db.fakultets
                                 from ft in db.fakultet_teksts
                                 where f.id == ft.id_fakultet
-                                select ft;
-                foreach(var item in faculties)
+                                select ft;*/
+                foreach(var item in db.fakultet_teksts)
                 {
-                if (faculty_text.naziv == item.naziv) facultyBool = true;
+                    if (faculty_text.naziv == item.naziv) facultyBool = true;
                 }
                 if (facultyBool==false)
                     try
                     {
-                        faculty.id_grad = city.id;
-                        
+                        faculty.id_grad = city.id;                        
                         faculty.id_sveuciliste = university.id;
-                        faculty.slika = "";
                         UpdateModel(faculty);
                         repository.Add(faculty);
                         repository.Save();
@@ -327,7 +328,7 @@ namespace Where2Study.Controllers
                         UpdateModel(faculty_text);
                         repository.Add(faculty_text);
                         repository.Save();
-                        return RedirectToAction("Details", "Menu" ,new { id = faculty.id });
+                        return RedirectToAction("Details", "Menu", new { city = city_text.naziv, faculty = faculty_text.naziv });
                    }
                    catch
                    {
