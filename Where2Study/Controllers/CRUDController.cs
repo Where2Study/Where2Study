@@ -176,6 +176,69 @@ namespace Where2Study.Controllers
             return ret;
         }
 
+        public string getFaculties(string id, string id2, string id3)
+        {
+            //id == city, id2 == country, id3 == continent
+            SiteLanguages.GetAllLanguages();
+            var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+            var db = new w2sDataContext();
+            IQueryable<string> queue;
+
+            if (id == null || id == "null")
+            {
+                if (id2 == null || id2 == "null")
+                {
+                    if (id3 == null || id3 == "null")
+                    {
+                        queue = from k in db.kontinents
+                                from d in db.drzavas
+                                from g in db.grads
+                                from f in db.fakultets
+                                from ft in db.fakultet_teksts
+                                from j in db.jeziks
+                                where k.id == d.id_kontinent && d.id == g.id_drzava && g.id == f.id_grad && f.id == ft.id_fakultet && ft.id_jezik == j.id && j.kratica == currentLanguage
+                                select ft.naziv;
+                    }
+                    else
+                    {
+                        queue = from kt in db.kontinent_teksts
+                                from d in db.drzavas
+                                from g in db.grads
+                                from f in db.fakultets
+                                from ft in db.fakultet_teksts
+                                from j in db.jeziks
+                                where kt.tekst == id3 && kt.id_kontinent == d.id_kontinent && d.id == g.id_drzava && g.id == f.id_grad && f.id == ft.id_fakultet && ft.id_jezik == j.id && j.kratica == currentLanguage
+                                select ft.naziv;
+                    }
+                }
+                else
+                {
+                    queue = from dt in db.drzava_teksts
+                            from g in db.grads
+                            from f in db.fakultets
+                            from ft in db.fakultet_teksts
+                            from j in db.jeziks
+                            where dt.naziv == id2 && dt.id_drzava == g.id_drzava && g.id == f.id_grad && f.id == ft.id_fakultet && ft.id_jezik == j.id && j.kratica == currentLanguage
+                            select ft.naziv;
+                }
+            }
+            else
+            {
+                queue = from gt in db.grad_teksts
+                        from f in db.fakultets
+                        from ft in db.fakultet_teksts
+                        from j in db.jeziks
+                        where gt.naziv == id && j.kratica == currentLanguage && ft.id_jezik == j.id && ft.id_fakultet == f.id && f.id_grad == gt.id_grad
+                        select ft.naziv;
+            }
+
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string ret = serializer.Serialize(queue);
+
+            return ret;
+        }
+
         [Authorize, AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Index()
         {     
@@ -421,7 +484,7 @@ namespace Where2Study.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
-        public ActionResult CreateSpecialization(smjer_tekst specializationEntry)
+        public ActionResult CreateSpecialization(smjer_tekst specializationEntry, String id, String id2, String id3)
         {
             if (ModelState.IsValid)
             {
@@ -429,33 +492,44 @@ namespace Where2Study.Controllers
                 var db = new w2sDataContext();
                 var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
                 var clId = 0;
+                int? facultyId = 0, degreeId = 0;
+
 
                 smjer specialization = new smjer();
-                country_text.naziv = facultyEntry.Country;
-                country_text.opis = "";
-                country.id = 0;
-               
+                foreach (var item in db.fakultet_teksts)
+                {
+                    if (id /*koji god daje naziv fakulteta*/ == item.naziv) facultyId = item.id_fakultet;
+                }
+
+                stupanj_smjer degree_specialization = new stupanj_smjer();
+                foreach (var item in db.stupanj_teksts)
+                {
+                    if (id2 /*koji god daje naziv stupnja*/ == item.naziv) degreeId = item.id_stupanj;
+                }
+
                 smjer_tekst specialization_text = new smjer_tekst();
                 specialization_text.tekst = specializationEntry.tekst;
 
 
                 try
                 {
-                    specialization.id = country.id;
-                    UpdateModel(city);
-                    repository.Add(city);
+                    specialization.id_fakultet = facultyId;
+                    UpdateModel(specialization);
+                    repository.Add(specialization);
                     repository.Save();
 
-                    city_text.id_grad = city.id;
-                    city_text.id_jezik = clId;
-                    city_text.opis = null;
-                    UpdateModel(city_text);
-                    repository.Add(city_text);
+                    degree_specialization.id_smjer = specialization.id;
+                    degree_specialization.id_stupanj = degreeId;
+
+                    specialization_text.id_smjer = specialization.id;
+                    specialization_text.id_jezik = clId;
+                    UpdateModel(specialization_text);
+                    repository.Add(specialization_text);
                     repository.Save();
                 }
                 catch
                 {
-                    ModelState.AddRuleViolations(city_text.GetRuleViolations());
+                    ModelState.AddRuleViolations(specialization_text.GetRuleViolations());
                 }
 
             }
