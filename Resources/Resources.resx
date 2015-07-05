@@ -459,4 +459,13 @@
   <data name="Where2StudyTeam" xml:space="preserve">
     <value>Where 2 Study Team</value>
   </data>
+  <data name="EnterFaculty" xml:space="preserve">
+    <value>Enter faculty</value>
+  </data>
+  <data name="EnterSpecialization" xml:space="preserve">
+    <value>Enter specialization</value>
+  </data>
+  <data name="DegreeTitle" xml:space="preserve">
+    <value>Degree</value>
+  </data>
 </root>

@@ -394,6 +394,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Degree.
+        /// </summary>
+        public static string DegreeTitle {
+            get {
+                return ResourceManager.GetString("DegreeTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter faculty.
+        /// </summary>
+        public static string EnterFaculty {
+            get {
+                return ResourceManager.GetString("EnterFaculty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter specialization.
+        /// </summary>
+        public static string EnterSpecialization {
+            get {
+                return ResourceManager.GetString("EnterSpecialization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to faculties.
         /// </summary>
         public static string faculties {
