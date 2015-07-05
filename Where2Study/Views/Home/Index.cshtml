@@ -53,7 +53,8 @@
                         {
                             var itemClass = i++ == 0 ? "item active" : "item";
                             <div class="@itemClass">                                
-                                <h4 class="text-center">@item.University <br />@item.Title</h4>
+                                <h5 class="text-center">@item.University <br /></h5>
+                                <h4 class="text-center">@item.Title</h4>
                                  <a href="~/Menu/Details?city=@item.City&faculty=@item.Title">
                                     <img class="center-block" src="/content/Images/Slike/@item.Photo" alt="@item.Title" style="width:400px;">
                                 </a>

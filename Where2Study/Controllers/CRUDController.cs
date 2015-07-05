@@ -177,22 +177,34 @@ namespace Where2Study.Controllers
         }
 
         [Authorize, AcceptVerbs(HttpVerbs.Get)]
-        public ActionResult Index(fakultet faculty)
+        public ActionResult Index()
+        {     
+            return View();
+        }
+
+        [Authorize, AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult CreateFaculty()
         {
             if (ModelState.IsValid)
             {
-               /* try
-                {
-                    UpdateModel(faculty);
-                    repository.Add(faculty);
-                    repository.Save();
-                    return RedirectToAction("Details", new { id = faculty.id });
-                }
-                catch
-                {
-                    // ModelState.AddRuleViolations(faculty.GetRuleViolations());
-                }*/
+                /* try
+                 {
+                     UpdateModel(faculty);
+                     repository.Add(faculty);
+                     repository.Save();
+                     return RedirectToAction("Details", new { id = faculty.id });
+                 }
+                 catch
+                 {
+                     // ModelState.AddRuleViolations(faculty.GetRuleViolations());
+                 }*/
             }
+            return View();
+        }
+
+        [Authorize, AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult CreateSpecialization()
+        {           
             return View();
         }
 
@@ -216,8 +228,7 @@ namespace Where2Study.Controllers
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
         //public ActionResult Create(kontinent_tekst continent, drzava_tekst country_text, grad_tekst city_text, fakultet faculty, fakultet_tekst faculty_text, sveuciliste university, sveuciliste_tekst university_text)
-        public ActionResult Index(Faculty facultyEntry)
-        //public ActionResult Create(Faculty facultyEntry)
+        public ActionResult CreateFaculty(Faculty facultyEntry)
         {
             if (ModelState.IsValid)
             {
@@ -267,6 +278,7 @@ namespace Where2Study.Controllers
                 var languages = from j in db.jeziks select j;
                 foreach(var item in languages) if(currentLanguage == item.kratica) clId=item.id;    
                 bool countryBool=false, cityBool=false, universityBool=false, facultyBool=false;
+
                 /*var countries = from d in db.drzavas
                             from dt in db.drzava_teksts
                             where d.id == dt.id_drzava
@@ -407,6 +419,49 @@ namespace Where2Study.Controllers
                }
             return View(facultyEntry);
         }
+
+        [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
+        public ActionResult CreateSpecialization(smjer_tekst specializationEntry)
+        {
+            if (ModelState.IsValid)
+            {
+                //NameValueCollection nvc = Request.Form;
+                var db = new w2sDataContext();
+                var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+                var clId = 0;
+
+                smjer specialization = new smjer();
+                country_text.naziv = facultyEntry.Country;
+                country_text.opis = "";
+                country.id = 0;
+               
+                smjer_tekst specialization_text = new smjer_tekst();
+                specialization_text.tekst = specializationEntry.tekst;
+
+
+                try
+                {
+                    specialization.id = country.id;
+                    UpdateModel(city);
+                    repository.Add(city);
+                    repository.Save();
+
+                    city_text.id_grad = city.id;
+                    city_text.id_jezik = clId;
+                    city_text.opis = null;
+                    UpdateModel(city_text);
+                    repository.Add(city_text);
+                    repository.Save();
+                }
+                catch
+                {
+                    ModelState.AddRuleViolations(city_text.GetRuleViolations());
+                }
+
+            }
+            return View(specializationEntry);
+        }
+
 
         public ActionResult Edit(int id)
         {

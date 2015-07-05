@@ -439,6 +439,8 @@
     <Content Include="Content\Images\Zastave\Zambia.png" />
     <Content Include="Content\Images\Zastave\Zimbabwe.png" />
     <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\CRUD\CreateFaculty.cshtml" />
+    <Content Include="Views\CRUD\CreateSpecialization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-Where2Study-20140122073505.mdf" />
@@ -641,7 +643,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Menu\Details.cshtml" />
     <Content Include="Views\Faculty\Details.cshtml" />
-    <Content Include="Views\CRUD\Index1.cshtml" />
+    <Content Include="Views\CRUD\Index.cshtml" />
     <Content Include="Views\CRUD\City\Delete.cshtml" />
     <Content Include="Views\CRUD\City\Deleted.cshtml" />
     <Content Include="Views\CRUD\City\Details.cshtml" />
@@ -701,7 +703,6 @@
     <Content Include="Views\Menu\Countriesx.cshtml" />
     <Content Include="Views\Menu\Countriesfd.cshtml" />
     <Content Include="Views\Faculty\Create1.cshtml" />
-    <Content Include="Views\CRUD\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

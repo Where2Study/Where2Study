@@ -1,0 +1,84 @@
+﻿@model Where2Study.Models.smjer_tekst
+
+ @*Ovo je potrebno za autosuggest.*@
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+@{
+    ViewBag.Title = "CreateSpecialization";
+}
+
+<h2>CreateSpecialization</h2>
+<b class="editor-label">
+    @Resources.Resources.FacultyTitle
+</b>
+<div>
+    @Html.TextBox("Faculty")
+</div>
+<b class="editor-label">
+    @Resources.Resources.DegreeTitle
+</b>
+<div>
+    @Html.TextBox("Degree")
+</div>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>smjer_tekst</legend>
+            
+        <div class="editor-label">
+            @Html.LabelFor(model => model.tekst)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.tekst)
+            @Html.ValidationMessageFor(model => model.tekst)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var Faculties = [];
+        var Degrees = [];
+        
+        $.ajax({
+            url: "getFaculties",
+            dataType: "json"
+        })
+        .done(function (msg) {
+            Faculties = msg;
+            $("#Faculty").autocomplete({
+                minLength: 0,
+                source: Faculties
+            }).focus(function () {
+                $(this).autocomplete("search", $(this).val());
+            });
+        });
+
+        $.ajax({
+            url: "getDegrees",
+            dataType: "json"
+        })
+        .done(function (msg) {
+            Degrees = msg;
+            $("#Degree").autocomplete({
+                minLength: 0,
+                source: Degrees
+            }).focus(function () {
+                $(this).autocomplete("search", $(this).val());
+            });
+        });
+    });
+</script>
