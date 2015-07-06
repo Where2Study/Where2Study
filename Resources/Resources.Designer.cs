@@ -421,6 +421,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter university.
+        /// </summary>
+        public static string EnterUniversity {
+            get {
+                return ResourceManager.GetString("EnterUniversity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to faculties.
         /// </summary>
         public static string faculties {
@@ -664,7 +673,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Must be less then 16 chatr.
+        ///   Looks up a localized string similar to Must be less then 16 char.
         /// </summary>
         public static string PhoneNumberLong {
             get {
