@@ -266,6 +266,12 @@ namespace Where2Study.Controllers
         }
 
         [Authorize, AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult CreateUniversity()
+        {
+            return View();
+        }
+
+        [Authorize, AcceptVerbs(HttpVerbs.Get)]
         public ActionResult CreateSpecialization()
         {           
             return View();
@@ -457,30 +463,225 @@ namespace Where2Study.Controllers
                                 select ft;*/
                 foreach(var item in db.fakultet_teksts)
                 {
-                    if (faculty_text.naziv == item.naziv) facultyBool = true;
+                    if (faculty_text.naziv == item.naziv)
+                    {
+                        facultyBool = true;
+                        faculty.id = (int)(item.id_fakultet);
+                        faculty_text.id = item.id;
+                        faculty_text.id_fakultet = item.id_fakultet;
+                        break;
+                    }
                 }
-                if (facultyBool==false)
+                faculty.id_grad = city.id;
+                faculty.id_sveuciliste = university.id;
+                faculty_text.id_jezik = clId;
+                if (facultyBool == false)
                     try
                     {
-                        faculty.id_grad = city.id;                        
-                        faculty.id_sveuciliste = university.id;
                         UpdateModel(faculty);
                         repository.Add(faculty);
                         repository.Save();
 
                         faculty_text.id_fakultet = faculty.id;
-                        faculty_text.id_jezik = clId;
                         UpdateModel(faculty_text);
                         repository.Add(faculty_text);
                         repository.Save();
                         return RedirectToAction("Details", "Menu", new { city = city_text.naziv, faculty = faculty_text.naziv });
-                   }
-                   catch
-                   {
+                    }
+                    catch
+                    {
                         ModelState.AddRuleViolations(faculty_text.GetRuleViolations());
-                   }
+                    }
+                else
+                {
+                    fakultet facultyE = new fakultet();
+                    facultyE = repository.Get_fakultet(faculty.id);
+                    facultyE.id_grad = faculty.id_grad;
+                    facultyE.id_sveuciliste = faculty.id_sveuciliste;
+                    facultyE.adresa_fakulteta = faculty.adresa_fakulteta;
+                    facultyE.broj_telefona = faculty.broj_telefona;
+                    facultyE.web = faculty.web;
+                    facultyE.slika = faculty.slika;
+                    fakultet_tekst faculty_textE = new fakultet_tekst();
+                    faculty_textE = repository.Get_fakultet_tekst(faculty_text.id);
+                    faculty_textE.id_fakultet = faculty_text.id_fakultet;
+                    faculty_textE.id_jezik = faculty_text.id_jezik;
+                    faculty_textE.naziv = faculty_text.naziv;
+                    faculty_textE.opis = faculty_text.opis;
+
+                    try
+                    {
+                        UpdateModel(facultyE);
+                        repository.Save();
+
+                        UpdateModel(faculty_textE);
+                        repository.Save();
+                        return RedirectToAction("Details", "Menu", new { city = city_text.naziv, faculty = faculty_textE.naziv });
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(faculty_textE.GetRuleViolations());
+                    }
+                }
                }
             return View(facultyEntry);
+        }
+
+        [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
+        public ActionResult CreateUniversity(University universityEntry)
+        {
+            if (ModelState.IsValid)
+            {
+                var db = new w2sDataContext();
+                var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+                var clId = 0;
+                kontinent_tekst continent = new kontinent_tekst();
+                continent.tekst = universityEntry.Continent;
+
+                drzava country = new drzava();
+                drzava_tekst country_text = new drzava_tekst();
+                country_text.naziv = universityEntry.Country;
+                country_text.opis = "";
+                country.id = 0;
+
+                grad city = new grad();
+                grad_tekst city_text = new grad_tekst();
+                city_text.naziv = universityEntry.City;
+                city_text.opis = "";
+                city.id = 0;             
+
+                sveuciliste university = new sveuciliste();
+                university.adresa_sveucilista = universityEntry.Address;
+                university.broj_telefona = universityEntry.Phone;
+                university.web = universityEntry.WebSite;
+                //university.slika = universityEntry.Photo;
+
+                sveuciliste_tekst university_text = new sveuciliste_tekst();
+                university_text.naziv = universityEntry.Title;
+                university_text.opis = universityEntry.Description;
+               
+
+                var languages = from j in db.jeziks select j;
+                foreach (var item in languages) if (currentLanguage == item.kratica) clId = item.id;
+                bool countryBool = false, cityBool = false, universityBool = false;
+            
+                foreach (var item in db.drzava_teksts)
+                {
+                    if (country_text.naziv == item.naziv)
+                    {
+                        countryBool = true;
+                        country.id = (int)(item.id_drzava);
+                        break;
+                    }
+                }
+                if (countryBool == false)
+                    try
+                    {                       
+                        foreach (var item in db.kontinent_teksts) if (continent.tekst == item.tekst) country.id_kontinent = item.id_kontinent;
+                        UpdateModel(country);
+                        repository.Add(country);
+                        repository.Save();
+
+                        country_text.id_drzava = country.id;
+                        country_text.id_jezik = clId;
+                        country_text.opis = null;
+                        UpdateModel(country_text);
+                        repository.Add(country_text);
+                        repository.Save();
+                        //return RedirectToAction("Details", new { id = country_text.id });
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(country_text.GetRuleViolations());
+                    }
+      
+                foreach (var item in db.grad_teksts)
+                {
+                    if (city_text.naziv == item.naziv)
+                    {
+                        cityBool = true;
+                        city.id = (int)(item.id_grad);
+                        break;
+                    }
+                }
+                if (cityBool == false)
+                    try
+                    {
+                        city.id_drzava = country.id;
+                        UpdateModel(city);
+                        repository.Add(city);
+                        repository.Save();
+
+                        city_text.id_grad = city.id;
+                        city_text.id_jezik = clId;
+                        city_text.opis = null;
+                        UpdateModel(city_text);
+                        repository.Add(city_text);
+                        repository.Save();
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(city_text.GetRuleViolations());
+                    }
+
+                foreach (var item in db.sveuciliste_teksts)
+                {
+                    if (university_text.naziv == item.naziv)
+                    {
+                        universityBool = true;
+                        university.id = (int)(item.id_sveuciliste);
+                        university_text.id = item.id;
+                        university_text.id_sveuciliste = item.id_sveuciliste;
+                        break;
+                    }
+                }
+                university.id_grad = city.id;
+                university_text.id_jezik = clId;
+                if (universityBool == false)
+                    try
+                    {
+                        UpdateModel(university);
+                        repository.Add(university);
+                        repository.Save();
+
+                        university_text.id_sveuciliste = university.id;
+                        UpdateModel(university_text);
+                        repository.Add(university_text);
+                        repository.Save();
+                        return RedirectToAction("Details", "Menu", new { city = city_text.naziv, faculty = university_text.naziv });
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(university_text.GetRuleViolations());
+                    }
+                else
+                {
+                    sveuciliste universityE = repository.Get_sveuciliste(university.id);
+                    universityE.id_grad = university.id_grad;
+                    universityE.adresa_sveucilista = university.adresa_sveucilista;
+                    universityE.broj_telefona = university.broj_telefona;
+                    universityE.web = university.web;
+                    sveuciliste_tekst university_textE = repository.Get_sveuciliste_tekst(university_text.id);
+                    university_textE.id_sveuciliste = university_text.id_sveuciliste;
+                    university_textE.id_jezik = university_text.id_jezik;
+                    university_textE.naziv = university_text.naziv;
+                    university_textE.opis = university_text.opis;
+                    try
+                    {
+                        UpdateModel(universityE);
+                        repository.Save();
+
+                        UpdateModel(university_textE);
+                        repository.Save();
+                        return RedirectToAction("Details", "Menu", new { city = city_text.naziv, faculty = university_textE.naziv });
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(university_text.GetRuleViolations());
+                    }
+                }
+            }
+            return View(universityEntry);
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]

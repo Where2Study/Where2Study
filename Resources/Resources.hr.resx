@@ -468,4 +468,7 @@
   <data name="DegreeTitle" xml:space="preserve">
     <value>Stupanj</value>
   </data>
+  <data name="EnterUniversity" xml:space="preserve">
+    <value>Unesi sveučilište</value>
+  </data>
 </root>

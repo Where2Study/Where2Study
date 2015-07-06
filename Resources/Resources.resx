@@ -166,7 +166,7 @@
     <value>Menu</value>
   </data>
   <data name="PhoneNumberLong" xml:space="preserve">
-    <value>Must be less then 16 chatr</value>
+    <value>Must be less then 16 char</value>
   </data>
   <data name="PhoneNumberRequired" xml:space="preserve">
     <value>Phone number is required</value>
@@ -467,5 +467,8 @@
   </data>
   <data name="DegreeTitle" xml:space="preserve">
     <value>Degree</value>
+  </data>
+  <data name="EnterUniversity" xml:space="preserve">
+    <value>Enter university</value>
   </data>
 </root>
