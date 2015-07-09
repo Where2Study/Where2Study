@@ -471,4 +471,7 @@
   <data name="EnterUniversity" xml:space="preserve">
     <value>Unesi sveučilište</value>
   </data>
+  <data name="EntryLanguage" xml:space="preserve">
+    <value>Jezik unosa: Hrvatski (za promjenu odaberite jezik u navbar izborniku)</value>
+  </data>
 </root>

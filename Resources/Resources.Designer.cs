@@ -430,6 +430,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entry language: English (to change, select a language from the navbar menu).
+        /// </summary>
+        public static string EntryLanguage {
+            get {
+                return ResourceManager.GetString("EntryLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to faculties.
         /// </summary>
         public static string faculties {
