@@ -471,4 +471,7 @@
   <data name="EnterUniversity" xml:space="preserve">
     <value>Enter university</value>
   </data>
+  <data name="EntryLanguage" xml:space="preserve">
+    <value>Entry language: English (to change, select a language from the navbar menu)</value>
+  </data>
 </root>
