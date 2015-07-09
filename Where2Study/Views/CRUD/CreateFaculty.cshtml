@@ -1,4 +1,4 @@
-﻿@model Where2Study.Models.Faculty
+﻿@model Where2Study.Models.FacultyInput
 
  @*Ovo je potrebno za autosuggest.*@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -11,7 +11,7 @@
 <h2>@Resources.Resources.EnterFaculty</h2>
 <h3>@Resources.Resources.EntryLanguage</h3>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("CreateFaculty", "CRUD", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -90,7 +90,7 @@
                 @Html.LabelFor(model => model.Photo)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Photo)
+                <input type="file" id="Photo" name="Photo" />
                 @Html.ValidationMessageFor(model => model.Photo)
             </div>
 
