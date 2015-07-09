@@ -174,7 +174,7 @@
         })
                .done(function (msg) {
                    Faculties = msg;
-                   $("#Faculty").autocomplete({
+                   $("#Title").autocomplete({
                        minLength: 0,
                        source: Faculties
                    }).focus(function () {
@@ -232,6 +232,22 @@
         $("#City").on("autocompletechange", function () {
             $.ajax({
                 url: "getFaculties/" + $("#City").val(),
+                dataType: "json"
+            })
+            .done(function (msg) {
+                Faculties = msg;
+                $("#Title").autocomplete({
+                    minLength: 0,
+                    source: Faculties
+                }).focus(function () {
+                    $(this).autocomplete("search", $(this).val());
+                });
+            });
+        });
+
+        $("#University").on("autocompletechange", function () {
+            $.ajax({
+                url: "getFaculties/" + $("#University").val(),
                 dataType: "json"
             })
             .done(function (msg) {

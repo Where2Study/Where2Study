@@ -151,7 +151,7 @@
         })
                 .done(function (msg) {
                     Universities = msg;
-                    $("#University").autocomplete({
+                    $("#Title").autocomplete({
                         minLength: 0,
                         source: Universities
                     }).focus(function () {
@@ -198,7 +198,7 @@
             })
             .done(function (msg) {
                 Universities = msg;
-                $("#University").autocomplete({
+                $("#Title").autocomplete({
                     minLength: 0,
                     source: Universities
                 }).focus(function () {
