@@ -180,6 +180,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\University.cs" />
     <Compile Include="Models\Comments.cs" />
     <Compile Include="Models\Continent.cs" />

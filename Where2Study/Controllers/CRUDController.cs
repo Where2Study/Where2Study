@@ -30,16 +30,34 @@ namespace Where2Study.Controllers
             var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
 
             var db = new w2sDataContext();
-            var queue = from k in db.kontinent_teksts
+            var queue = from kt in db.kontinent_teksts
                         from j in db.jeziks
-                        where j.kratica == currentLanguage && k.id_jezik == j.id
-                        select k.tekst;
+                        where j.kratica == currentLanguage && kt.id_jezik == j.id
+                        select kt.tekst;
             
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             string ret = serializer.Serialize(queue.ToArray());
 
             return ret;
         }
+
+        public string getDegrees()
+        {
+            SiteLanguages.GetAllLanguages();
+            var currentLanguage = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+
+            var db = new w2sDataContext();
+            var queue = from st in db.stupanj_teksts
+                        from j in db.jeziks
+                        where j.kratica == currentLanguage && st.id_jezik == j.id
+                        select st.naziv;
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string ret = serializer.Serialize(queue.ToArray());
+
+            return ret;
+        }
+
 
         public string getCountries(string id)
         {
@@ -685,7 +703,7 @@ namespace Where2Study.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateInput(false)]
-        public ActionResult CreateSpecialization(smjer_tekst specializationEntry, String id, String id2, String id3)
+        public ActionResult CreateSpecialization(DegreeSpecialization specializationEntry)
         {
             if (ModelState.IsValid)
             {
@@ -695,21 +713,22 @@ namespace Where2Study.Controllers
                 var clId = 0;
                 int? facultyId = 0, degreeId = 0;
 
-
+                var languages = from j in db.jeziks select j;
+                foreach (var item in languages) if (currentLanguage == item.kratica) clId = item.id;
                 smjer specialization = new smjer();
                 foreach (var item in db.fakultet_teksts)
                 {
-                    if (id /*koji god daje naziv fakulteta*/ == item.naziv) facultyId = item.id_fakultet;
+                    if (specializationEntry.Faculty == item.naziv) facultyId = item.id_fakultet;
                 }
 
                 stupanj_smjer degree_specialization = new stupanj_smjer();
                 foreach (var item in db.stupanj_teksts)
                 {
-                    if (id2 /*koji god daje naziv stupnja*/ == item.naziv) degreeId = item.id_stupanj;
+                    if (specializationEntry.Degree == item.naziv) degreeId = item.id_stupanj;
                 }
 
                 smjer_tekst specialization_text = new smjer_tekst();
-                specialization_text.tekst = specializationEntry.tekst;
+                specialization_text.tekst = specializationEntry.Specialization;
 
 
                 try
@@ -721,12 +740,27 @@ namespace Where2Study.Controllers
 
                     degree_specialization.id_smjer = specialization.id;
                     degree_specialization.id_stupanj = degreeId;
+                    UpdateModel(degree_specialization);
+                    repository.Add(degree_specialization);
+                    repository.Save();
 
                     specialization_text.id_smjer = specialization.id;
                     specialization_text.id_jezik = clId;
                     UpdateModel(specialization_text);
                     repository.Add(specialization_text);
                     repository.Save();
+
+                    var u = from ft in db.fakultet_teksts
+                            from f in db.fakultets
+                            from gt in db.grad_teksts
+                            from g in db.grads
+                            from dt in db.drzava_teksts
+                            from d in db.drzavas
+                            from kt in db.kontinent_teksts                          
+                            from j in db.jeziks                           
+                            where ft.naziv == specializationEntry.Faculty && j.kratica == currentLanguage && ft.id_fakultet == f.id && f.id_grad == g.id && g.id_drzava == d.id && d.id_kontinent == kt.id_kontinent && gt.id_grad == g.id && dt.id_drzava == d.id && ft.id_jezik == j.id && gt.id_jezik == j.id && dt.id_jezik == j.id && kt.id_jezik == j.id
+                            select gt;
+                    return RedirectToAction("Details", "Menu", new { city = u.First().naziv, faculty = specializationEntry.Faculty });
                 }
                 catch
                 {

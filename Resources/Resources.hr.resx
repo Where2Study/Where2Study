@@ -474,4 +474,25 @@
   <data name="EntryLanguage" xml:space="preserve">
     <value>Jezik unosa: Hrvatski (za promjenu odaberite jezik u navbar izborniku)</value>
   </data>
+  <data name="DegreeTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 50 znakova</value>
+  </data>
+  <data name="DegreeTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti stupanj</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="DurationRequired" xml:space="preserve">
+    <value>Potrebno je unijeti trajanje</value>
+  </data>
+  <data name="SpecializationTitle" xml:space="preserve">
+    <value>Smjer</value>
+  </data>
+  <data name="SpecializationTitleLong" xml:space="preserve">
+    <value>Mora biti kraće od 50 znakova</value>
+  </data>
+  <data name="SpecializationTitleRequired" xml:space="preserve">
+    <value>Potrebno je unijeti smjer</value>
+  </data>
 </root>

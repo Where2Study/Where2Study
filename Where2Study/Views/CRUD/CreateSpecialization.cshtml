@@ -1,4 +1,4 @@
-﻿@model Where2Study.Models.smjer_tekst
+﻿@model Where2Study.Models.DegreeSpecialization
 
  @*Ovo je potrebno za autosuggest.*@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -11,7 +11,7 @@
 <h2>@Resources.Resources.EnterSpecialization</h2>
 <h3>@Resources.Resources.EntryLanguage</h3>
 
-<b class="editor-label">
+@*<b class="editor-label">
     @Resources.Resources.FacultyTitle
 </b>
 <div>
@@ -22,7 +22,7 @@
 </b>
 <div>
     @Html.TextBox("Degree")
-</div>
+</div>*@
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -30,13 +30,27 @@
 
     <fieldset>
         <legend>smjer_tekst</legend>
-            
-        <div class="editor-label">
-            @Html.LabelFor(model => model.tekst)
+         
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Faculty)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.tekst)
-            @Html.ValidationMessageFor(model => model.tekst)
+            @Html.EditorFor(model => model.Faculty)
+            @Html.ValidationMessageFor(model => model.Faculty)
+        </div> 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degree)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Degree)
+            @Html.ValidationMessageFor(model => model.Degree)
+        </div>   
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Specialization)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Specialization)
+            @Html.ValidationMessageFor(model => model.Specialization)
         </div>
 
         <p>

@@ -474,4 +474,25 @@
   <data name="EntryLanguage" xml:space="preserve">
     <value>Entry language: English (to change, select a language from the navbar menu)</value>
   </data>
+  <data name="DegreeTitleLong" xml:space="preserve">
+    <value>Must be less then 50 characters</value>
+  </data>
+  <data name="DegreeTitleRequired" xml:space="preserve">
+    <value>Degree is required</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="DurationRequired" xml:space="preserve">
+    <value>Duration title is required</value>
+  </data>
+  <data name="SpecializationTitle" xml:space="preserve">
+    <value>Specialization</value>
+  </data>
+  <data name="SpecializationTitleLong" xml:space="preserve">
+    <value>Must be less then 50 characters</value>
+  </data>
+  <data name="SpecializationTitleRequired" xml:space="preserve">
+    <value>Specialization title is required</value>
+  </data>
 </root>

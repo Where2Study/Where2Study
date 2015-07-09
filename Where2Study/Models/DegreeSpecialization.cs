@@ -10,8 +10,27 @@ namespace Where2Study.Models
     public partial class DegreeSpecialization
     {
         public int Id { get; set; }
+
+        [Display(Name = "DegreeTitle", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+                  ErrorMessageResourceName = "DegreeTitleRequired")]       
         public string Degree { get; set; }
+
+        [Display(Name = "SpecializationTitle", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+                  ErrorMessageResourceName = "SpecializationTitleRequired")]
+        [StringLength(50, ErrorMessageResourceType = typeof(Resources.Resources),
+                          ErrorMessageResourceName = "SpecializationTitleLong")]
         public string Specialization { get; set; }
+
+        [Display(Name = "FacultyTitle", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+                  ErrorMessageResourceName = "FacultyTitleRequired")]        
+        public string Faculty { get; set; }
+
+        /*[Display(Name = "Duration", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+                  ErrorMessageResourceName = "DurationRequired")]   */   
         public byte? Duration { get; set; }
 
         public IEnumerable DegSpecDetails(string faculty)
