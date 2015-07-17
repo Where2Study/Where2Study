@@ -107,7 +107,7 @@ namespace Where2Study.Controllers
                     from d in db.drzavas
                     from kt in db.kontinent_teksts
                     from j in db.jeziks
-                    where gt.naziv==city && j.kratica == currentLanguage && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id && gt.id_jezik==j.id && dt.id_jezik==j.id && kt.id_jezik==j.id
+                    where gt.naziv==city && j.kratica == currentLanguage && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id /*&& gt.id_jezik==j.id*/ && dt.id_jezik==j.id && kt.id_jezik==j.id
                     select new Faculty()
                     {
                         Continent = kt.tekst,
@@ -134,7 +134,6 @@ namespace Where2Study.Controllers
             var cultureInfo = Thread.CurrentThread.CurrentUICulture;
             var currentLanguage = cultureInfo.TwoLetterISOLanguageName;
                                      Faculty fac = new Faculty();
-
             var u = from ft in db.fakultet_teksts
                     from f in db.fakultets
                     from gt in db.grad_teksts
@@ -150,7 +149,7 @@ namespace Where2Study.Controllers
                     from sm in db.smjers
                     from smt in db.smjer_teksts
                     from stsm in db.stupanj_smjers*/
-                    where gt.naziv==city && ft.naziv==faculty && j.kratica == currentLanguage && f.id_sveuciliste==sv.id && svt.id_sveuciliste==sv.id && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id && gt.id_jezik==j.id && dt.id_jezik==j.id && kt.id_jezik==j.id
+                    where gt.naziv==city && ft.naziv==faculty && j.kratica == currentLanguage && f.id_sveuciliste==sv.id && svt.id_sveuciliste==sv.id && ft.id_fakultet==f.id && f.id_grad==g.id && g.id_drzava==d.id && d.id_kontinent==kt.id_kontinent && gt.id_grad==g.id && dt.id_drzava==d.id && ft.id_jezik==j.id /*&& gt.id_jezik==j.id */&& dt.id_jezik==j.id && kt.id_jezik==j.id
                     select new Faculty()
                     {
                         Continent = kt.tekst,
@@ -163,8 +162,8 @@ namespace Where2Study.Controllers
                         Description = ft.opis,
                         WebSite = f.web,
                         Photo = f.slika,
-                        Language = j.ime_jezika,
-                        Specializations = DegSpecDetails(f.id) 
+                        Language = j.ime_jezika/*,
+                        Specializations = DegSpecDetails(f.id)*/
                     };
             foreach (var item in u)
             {
@@ -179,7 +178,11 @@ namespace Where2Study.Controllers
                 fac.WebSite = item.WebSite;
                 fac.Photo = item.Photo;
                 fac.Language = item.Language;
-                fac.Specializations = item.Specializations;
+                foreach (var it in db.fakultet_teksts)
+                {
+                    if (it.naziv == item.Title)
+                        fac.Specializations = DegSpecDetails(it.id_fakultet);
+                }
             }
 
             //return View(new DegreeSpecialization() { partialModel = DegSpecDetails(city, faculty).ToList() });
@@ -240,7 +243,7 @@ namespace Where2Study.Controllers
                      from sm in db.smjers
                      from smt in db.smjer_teksts
                      from stsm in db.stupanj_smjers
-                     where f.id == id_faculty && j.kratica == currentLanguage && ft.id_fakultet == f.id && sm.id_fakultet == f.id && stsm.id_stupanj==s.id && stsm.id_smjer == sm.id && sm.id == smt.id_smjer && st.id_stupanj==s.id && st.id_jezik == j.id && smt.id_jezik==j.id
+                     where f.id == id_faculty && j.kratica == currentLanguage && ft.id_fakultet == f.id && sm.id_fakultet == f.id && stsm.id_stupanj==s.id && stsm.id_smjer == sm.id && sm.id == smt.id_smjer && st.id_stupanj==s.id && st.id_jezik == j.id && smt.id_jezik==j.id && ft.id_jezik == j.id
                      select new Where2Study.Models.DegreeSpecialization()
                      {
                          Id = s.id,
