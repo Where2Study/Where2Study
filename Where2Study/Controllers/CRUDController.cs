@@ -367,8 +367,8 @@ namespace Where2Study.Controllers
                 faculty_text.opis = facultyEntry.Description;
 
                 var languages = from j in db.jeziks select j;
-                foreach(var item in languages) if(currentLanguage == item.kratica) clId=item.id;    
-                bool countryBool=false, cityBool=false, universityBool=false, facultyBool=false;
+                foreach(var item in languages) if(currentLanguage == item.kratica) clId=item.id;
+                bool countryBool = false, cityBool = false, universityBool = false, facultyBool = false, faculty_textBool = false;
 
                 foreach(var item in db.drzava_teksts)
                 {
@@ -462,7 +462,27 @@ namespace Where2Study.Controllers
                         ModelState.AddRuleViolations(university_text.GetRuleViolations());
                     }
 
-                foreach(var item in db.fakultet_teksts)
+
+                foreach (var item in db.fakultets)
+                {
+                    if (faculty.adresa_fakulteta == item.adresa_fakulteta)
+                    {
+                        faculty.id = (int)(item.id);
+                        foreach (var it in db.fakultet_teksts)
+                        {
+                            if (faculty.id == it.id_fakultet && it.id_jezik == clId)
+                            {
+                                faculty_text.id = it.id;
+                                faculty_text.id_fakultet = it.id_fakultet;
+                                facultyBool = true;
+                                break;
+                            }
+                            faculty_textBool = true;
+                        }
+                        break;
+                    }
+                } 
+                foreach (var item in db.fakultet_teksts)
                 {
                     if (faculty_text.naziv == item.naziv)
                     {
@@ -476,6 +496,27 @@ namespace Where2Study.Controllers
                 faculty.id_grad = city.id;
                 faculty.id_sveuciliste = university.id;
                 faculty_text.id_jezik = clId;
+
+                if (faculty_textBool == true)
+                {
+                    fakultet facultyE = repository.Get_fakultet(faculty.id);
+                    facultyE = repository.Get_fakultet(faculty.id);
+                    facultyE.id_grad = faculty.id_grad;
+                    facultyE.id_sveuciliste = faculty.id_sveuciliste;
+                    facultyE.adresa_fakulteta = faculty.adresa_fakulteta;
+                    facultyE.broj_telefona = faculty.broj_telefona;
+                    facultyE.web = faculty.web;
+                    facultyE.slika = faculty.slika;
+                    try
+                    {
+                        UpdateModel(facultyE);
+                        repository.Save();
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(faculty_text.GetRuleViolations());
+                    }
+                }
                 if (facultyBool == false)
                     try
                     {
@@ -549,7 +590,7 @@ namespace Where2Study.Controllers
                 grad_tekst city_text = new grad_tekst();
                 city_text.naziv = universityEntry.City;
                 city_text.opis = "";
-                city.id = 0;             
+                city.id = 0;
 
                 sveuciliste university = new sveuciliste();
                 university.adresa_sveucilista = universityEntry.Address;
@@ -560,12 +601,12 @@ namespace Where2Study.Controllers
                 sveuciliste_tekst university_text = new sveuciliste_tekst();
                 university_text.naziv = universityEntry.Title;
                 university_text.opis = universityEntry.Description;
-               
+
 
                 var languages = from j in db.jeziks select j;
                 foreach (var item in languages) if (currentLanguage == item.kratica) clId = item.id;
-                bool countryBool = false, cityBool = false, universityBool = false;
-            
+                bool countryBool = false, cityBool = false, universityBool = false, university_textBool = false;
+
                 foreach (var item in db.drzava_teksts)
                 {
                     if (country_text.naziv == item.naziv)
@@ -577,7 +618,7 @@ namespace Where2Study.Controllers
                 }
                 if (countryBool == false)
                     try
-                    {                       
+                    {
                         foreach (var item in db.kontinent_teksts) if (continent.tekst == item.tekst) country.id_kontinent = item.id_kontinent;
                         UpdateModel(country);
                         repository.Add(country);
@@ -595,7 +636,7 @@ namespace Where2Study.Controllers
                     {
                         ModelState.AddRuleViolations(country_text.GetRuleViolations());
                     }
-      
+
                 foreach (var item in db.grad_teksts)
                 {
                     if (city_text.naziv == item.naziv)
@@ -625,6 +666,25 @@ namespace Where2Study.Controllers
                         ModelState.AddRuleViolations(city_text.GetRuleViolations());
                     }
 
+                foreach (var item in db.sveucilistes)
+                {
+                    if (university.adresa_sveucilista == item.adresa_sveucilista)
+                    {
+                        university.id = (int)(item.id);
+                        foreach (var it in db.sveuciliste_teksts)
+                        {
+                            if (university.id == it.id_sveuciliste && it.id_jezik == clId)
+                            {
+                                university_text.id = it.id;
+                                university_text.id_sveuciliste = it.id_sveuciliste;
+                                universityBool = true;
+                                break;
+                            }
+                            university_textBool = true;
+                        }
+                        break;
+                    }
+                }
                 foreach (var item in db.sveuciliste_teksts)
                 {
                     if (university_text.naziv == item.naziv)
@@ -636,8 +696,27 @@ namespace Where2Study.Controllers
                         break;
                     }
                 }
+
                 university.id_grad = city.id;
                 university_text.id_jezik = clId;
+
+                if (university_textBool == true)
+                {
+                    sveuciliste universityE = repository.Get_sveuciliste(university.id);
+                    universityE.id_grad = university.id_grad;
+                    universityE.adresa_sveucilista = university.adresa_sveucilista;
+                    universityE.broj_telefona = university.broj_telefona;
+                    universityE.web = university.web;
+                    try
+                    {
+                        UpdateModel(universityE);
+                        repository.Save();
+                    }
+                    catch
+                    {
+                        ModelState.AddRuleViolations(university_text.GetRuleViolations());
+                    }
+                }
                 if (universityBool == false)
                     try
                     {
