@@ -251,6 +251,8 @@ namespace Where2Study.Controllers
                          Specialization = smt.tekst,
                          Duration = s.trajanje,
                      }).ToList();
+            u.Sort((x, y) => string.Compare(x.Specialization, y.Specialization));
+
             return u;
         }
 
